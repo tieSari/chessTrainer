@@ -4,7 +4,7 @@ Shakin loppupeliharjoitusohjelma. Ohjelmalla voi harjoitella sotilaattomia perus
 ##Käyttäjät
 Aloittelevat shakkiharrastajat
 
-#Käyttäjän toiminnot:
+##Käyttäjän toiminnot:
 käyttäjä voi valita haluamansa loppupelin, esim. daami + kuningas vastaan kuningas, torni + kuningas vs. kuningas, lähettipari + kuningas vs. kuningas, lähetti, ratsu ja kuningas vastaan kuningas.
 
 ohjelma arpoo aloitusaseman tai halutessaan käyttäjä voi asettaa nappulat
