@@ -16,6 +16,11 @@ public class Kuningas extends Nappula implements Liikkuva{
     }
 
     @Override
+    public char getNimi() {
+        return 'K'; 
+    }
+
+    @Override
     public void Liikkuu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

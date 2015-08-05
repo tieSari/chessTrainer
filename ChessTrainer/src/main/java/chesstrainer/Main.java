@@ -2,6 +2,7 @@
 package chesstrainer;
 
 import chesstrainer.apuluokat.Vari;
+import chesstrainer.logiikka.Logiikka;
 import chesstrainer.peliosat.Pelilauta;
 import chesstrainer.peliosat.Nappula;
 import chesstrainer.peliosat.Kuningatar;
@@ -16,6 +17,7 @@ public class Main {
     
     public static void main (String args[])
     {
+        Logiikka logiikka = new Logiikka();
        Pelilauta pelilauta = new Pelilauta();
 //        System.out.println(pelilauta.toString());
 //        Ruutu ruutu = pelilauta.getRuutu(Kirjain.d, 4);
@@ -23,12 +25,15 @@ public class Main {
        
        //kysy loppupeli
        
-       ArrayList<Nappula> nappulat = new ArrayList<>();
-       nappulat.add(new Kuningas(Vari.Musta));
-       nappulat.add(new Kuningatar(Vari.Valkoinen));
-       nappulat.add(new Kuningas(Vari.Valkoinen));
+       ArrayList<Nappula> valkeat = new ArrayList<>();
        
+       valkeat.add(new Kuningatar(Vari.Valkea));
+       valkeat.add(new Kuningas(Vari.Valkea));     
+       valkeat.add(new Kuningas(Vari.Musta));
+       
+       logiikka.ArvoAlkuasema(valkeat, pelilauta);
        //arvo asema
+       
        //jos ruudulla jo nappula, ota lähin mahdollinen, joka ei uhattu
        //kysy valkean siirto
        //kun valkea siirtää, käynnistä kello

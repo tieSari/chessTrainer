@@ -1,7 +1,7 @@
 
 package chesstrainer.peliosat;
 
-import chesstrainer.apuluokat.Kirjain;
+import chesstrainer.apuluokat.Sijainti;
 import java.util.ArrayList;
 
 /**
@@ -13,9 +13,26 @@ public class Ruutu {
     
    // public String name;
     
-    private int numero;
-    private Kirjain kirjain;
+    private Sijainti sijainti;
     private Nappula nappula;
+    private boolean valkeaShakkaa;
+    private boolean mustaShakkaa;
+
+    public void setValkeaShakkaa(boolean valkeaShakkaa) {
+        this.valkeaShakkaa = valkeaShakkaa;
+    }
+
+    public void setMustaShakkaa(boolean mustaShakkaa) {
+        this.mustaShakkaa = mustaShakkaa;
+    }
+
+    public boolean isValkeaShakkaa() {
+        return valkeaShakkaa;
+    }
+
+    public boolean isMustaShakkaa() {
+        return mustaShakkaa;
+    }
 
     public Nappula getNappula() {
         return nappula;
@@ -25,13 +42,10 @@ public class Ruutu {
         this.nappula = nappula;
     }
 
-    public Kirjain getKirjain() {
-        return kirjain;
+    public Sijainti getSijainti() {
+        return sijainti;
     }
 
-    public int getNumero() {
-        return numero;
-    }
     
     private ArrayList<Ruutu> naapuriRuudut;
 
@@ -49,16 +63,16 @@ public class Ruutu {
         this.naapuriRuudut = naapuriRuudut;
     }
     
-    public Ruutu(Kirjain kirjain, int numero)
+    public Ruutu(Sijainti sijainti)
     {
         this.naapuriRuudut = new ArrayList<>();
-        this.numero = numero;
-        this.kirjain = kirjain;
+        this.sijainti = sijainti;
+        this.nappula = null;
     }
 
     public void tulostaNaapuriRuudut()
     {
-        System.out.println("minun "+getKirjain()+getNumero()+" naapurit;\n");
+        System.out.println("minun "+toString()+" naapurit;\n");
         for(Ruutu naapuri: naapuriRuudut)
         {
             System.out.println(naapuri.toString());
@@ -67,7 +81,7 @@ public class Ruutu {
     
     @Override
     public String toString() {
-        return " " + kirjain + numero;
+        return sijainti.toString();
     }
     
 }

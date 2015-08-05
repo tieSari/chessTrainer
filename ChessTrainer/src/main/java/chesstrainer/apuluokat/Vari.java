@@ -11,7 +11,7 @@ package chesstrainer.apuluokat;
  */
 public enum Vari {
     
-    Valkoinen,
+    Valkea,
     Musta;
     
 }

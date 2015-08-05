@@ -1,6 +1,7 @@
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Kirjain;
+import chesstrainer.apuluokat.Sijainti;
 
 /**
  *
@@ -25,15 +26,15 @@ public class Pelilauta {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                ruudut[i][j] = new Ruutu(Kirjain.get(i), j + 1);
+                ruudut[i][j] = new Ruutu(new Sijainti(Kirjain.get(i), j + 1));
             }
 
         }
 
     }
 
-    public Ruutu getRuutu(Kirjain kirjain, int numero) {
-        return ruudut[kirjain.getValue()][numero - 1];
+    public Ruutu getRuutu(Sijainti sijainti) {
+        return ruudut[sijainti.getKirjain().getValue()][sijainti.getNumero() - 1];
     }
 
     private void asetaNaapuriRuudut() {

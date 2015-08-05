@@ -17,6 +17,12 @@ public class Torni extends Nappula implements Liikkuva{
         super(vari);
     }
 
+    
+    @Override
+    public char getNimi() {
+        return 'T'; 
+    }
+    
     @Override
     public void Liikkuu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

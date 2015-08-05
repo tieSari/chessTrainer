@@ -18,6 +18,11 @@ public class Kuningatar extends Nappula implements Liikkuva{
     }
 
     @Override
+    public char getNimi() {
+        return 'D'; 
+    }
+    
+    @Override
     public void Liikkuu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

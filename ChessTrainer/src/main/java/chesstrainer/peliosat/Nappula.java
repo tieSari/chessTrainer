@@ -10,9 +10,14 @@ public abstract class Nappula {
 
     private final Vari vari;
     private Ruutu sijainti;
+    private char nimi;
     
     public Nappula(Vari vari) {
         this.vari = vari;
+    }
+
+    public char getNimi() {
+        return nimi;
     }
 
     public Vari getVari() {
@@ -26,5 +31,11 @@ public abstract class Nappula {
     public void setSijainti(Ruutu sijainti) {
         this.sijainti = sijainti;
     }
+
+    @Override
+    public String toString() {
+        return getVari() + " " + getNimi() + " " +sijainti.toString();
+    }
+    
     
 }

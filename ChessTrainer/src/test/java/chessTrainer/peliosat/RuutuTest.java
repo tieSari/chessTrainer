@@ -7,6 +7,7 @@ package chessTrainer.peliosat;
  */
 
 import chesstrainer.apuluokat.Kirjain;
+import chesstrainer.apuluokat.Sijainti;
 import chesstrainer.peliosat.Pelilauta;
 import chesstrainer.peliosat.Ruutu;
 import java.util.ArrayList;
@@ -51,11 +52,11 @@ public class RuutuTest {
     @Test
     public void OnkoVasemmanAlaKulmaRuudunNaapuritOikein() {
         
-        Ruutu ruutu = lauta.getRuutu(Kirjain.a, 1);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.a, 1));
         
-        Ruutu n1 = lauta.getRuutu(Kirjain.a, 2);
-        Ruutu n2 = lauta.getRuutu(Kirjain.b, 1);
-        Ruutu n3 = lauta.getRuutu(Kirjain.b, 2);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.a, 2));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.b, 1));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.b, 2));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -68,11 +69,11 @@ public class RuutuTest {
     @Test
     public void OnkoOikeanAlaKulmaRuudunNaapuritOikein() {
         
-        Ruutu ruutu = lauta.getRuutu(Kirjain.h, 1);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.h, 1));
         
-        Ruutu n1 = lauta.getRuutu(Kirjain.h, 2);
-        Ruutu n2 = lauta.getRuutu(Kirjain.g, 1);
-        Ruutu n3 = lauta.getRuutu(Kirjain.g, 2);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.h, 2));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.g, 1));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.g, 2));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -85,11 +86,11 @@ public class RuutuTest {
     @Test
     public void OnkoOikeanYlaKulmaRuudunNaapuritOikein() {
 
-        Ruutu ruutu = lauta.getRuutu(Kirjain.h, 8);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.h, 8));
 
-        Ruutu n1 = lauta.getRuutu(Kirjain.g, 8);
-        Ruutu n2 = lauta.getRuutu(Kirjain.h, 7);
-        Ruutu n3 = lauta.getRuutu(Kirjain.g, 7);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.g, 8));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.h, 7));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.g, 7));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -102,11 +103,11 @@ public class RuutuTest {
     @Test
     public void OnkoVasemmanYlaKulmaRuudunNaapuritOikein() {
 
-        Ruutu ruutu = lauta.getRuutu(Kirjain.a, 8);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.a, 8));
 
-        Ruutu n1 = lauta.getRuutu(Kirjain.b, 8);
-        Ruutu n2 = lauta.getRuutu(Kirjain.a, 7);
-        Ruutu n3 = lauta.getRuutu(Kirjain.b, 7);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.b, 8));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.a, 7));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.b, 7));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -119,16 +120,16 @@ public class RuutuTest {
     @Test
     public void OnkoKeskiRuudunNaapuritOikein() {
 
-        Ruutu ruutu = lauta.getRuutu(Kirjain.d, 5);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.d, 5));
 
-        Ruutu n1 = lauta.getRuutu(Kirjain.e, 5);
-        Ruutu n2 = lauta.getRuutu(Kirjain.e, 4);
-        Ruutu n3 = lauta.getRuutu(Kirjain.d, 4);
-        Ruutu n4 = lauta.getRuutu(Kirjain.d, 6);
-        Ruutu n5 = lauta.getRuutu(Kirjain.c, 5);
-        Ruutu n6 = lauta.getRuutu(Kirjain.c, 4);
-        Ruutu n7 = lauta.getRuutu(Kirjain.e, 6);
-        Ruutu n8 = lauta.getRuutu(Kirjain.c, 6);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.e, 5));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.e, 4));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.d, 4));
+        Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.d, 6));
+        Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.c, 5));
+        Ruutu n6 = lauta.getRuutu(new Sijainti(Kirjain.c, 4));
+        Ruutu n7 = lauta.getRuutu(new Sijainti(Kirjain.e, 6));
+        Ruutu n8 = lauta.getRuutu(new Sijainti(Kirjain.c, 6));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -146,13 +147,13 @@ public class RuutuTest {
      @Test
     public void OnkoAlaReunaRuudunNaapuritOikein() {
 
-        Ruutu ruutu = lauta.getRuutu(Kirjain.f, 1);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.f, 1));
 
-        Ruutu n1 = lauta.getRuutu(Kirjain.e, 1);
-        Ruutu n2 = lauta.getRuutu(Kirjain.e, 2);
-        Ruutu n3 = lauta.getRuutu(Kirjain.f, 2);
-        Ruutu n4 = lauta.getRuutu(Kirjain.g, 2);
-        Ruutu n5 = lauta.getRuutu(Kirjain.g, 1);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.e, 1));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.e, 2));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.f, 2));
+        Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.g, 2));
+        Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.g, 1));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -167,13 +168,13 @@ public class RuutuTest {
     @Test
      public void OnkoYlaReunaRuudunNaapuritOikein() {
 
-        Ruutu ruutu = lauta.getRuutu(Kirjain.b, 8);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.b, 8));
 
-        Ruutu n1 = lauta.getRuutu(Kirjain.c, 8);
-        Ruutu n2 = lauta.getRuutu(Kirjain.c, 7);
-        Ruutu n3 = lauta.getRuutu(Kirjain.a, 8);
-        Ruutu n4 = lauta.getRuutu(Kirjain.a, 7);
-        Ruutu n5 = lauta.getRuutu(Kirjain.b, 7);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.c, 8));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.c, 7));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.a, 8));
+        Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.a, 7));
+        Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.b, 7));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -188,13 +189,13 @@ public class RuutuTest {
      @Test
      public void OnkoVasemmanReunaRuudunNaapuritOikein() {
 
-        Ruutu ruutu = lauta.getRuutu(Kirjain.a, 5);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.a, 5));
 
-        Ruutu n1 = lauta.getRuutu(Kirjain.a, 4);
-        Ruutu n2 = lauta.getRuutu(Kirjain.a, 6);
-        Ruutu n3 = lauta.getRuutu(Kirjain.b, 5);
-        Ruutu n4 = lauta.getRuutu(Kirjain.b, 4);
-        Ruutu n5 = lauta.getRuutu(Kirjain.b, 6);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.a, 4));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.a, 6));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.b, 5));
+        Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.b, 4));
+        Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.b, 6));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
@@ -209,13 +210,13 @@ public class RuutuTest {
       @Test
      public void OnkoOikeanReunaRuudunNaapuritOikein() {
 
-        Ruutu ruutu = lauta.getRuutu(Kirjain.h, 5);
+        Ruutu ruutu = lauta.getRuutu(new Sijainti(Kirjain.h, 5));
 
-        Ruutu n1 = lauta.getRuutu(Kirjain.h, 4);
-        Ruutu n2 = lauta.getRuutu(Kirjain.h, 6);
-        Ruutu n3 = lauta.getRuutu(Kirjain.g, 5);
-        Ruutu n4 = lauta.getRuutu(Kirjain.g, 4);
-        Ruutu n5 = lauta.getRuutu(Kirjain.g, 6);
+        Ruutu n1 = lauta.getRuutu(new Sijainti(Kirjain.h, 4));
+        Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.h, 6));
+        Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.g, 5));
+        Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.g, 4));
+        Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.g, 6));
 
         ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
 

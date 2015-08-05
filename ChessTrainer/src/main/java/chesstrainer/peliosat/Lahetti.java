@@ -11,15 +11,20 @@ import chesstrainer.apuluokat.Vari;
  *
  * @author sariraut
  */
-public class Lahetti extends Nappula implements Liikkuva{
+public class Lahetti extends Nappula implements Liikkuva {
 
     public Lahetti(Vari vari) {
         super(vari);
     }
 
     @Override
-    public void Liikkuu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public char getNimi() {
+        return 'L';
     }
-    
+
+    @Override
+    public void Liikkuu() {
+
+    }
+
 }
