@@ -1,5 +1,7 @@
 ##Aihe 
-Shakin loppupeliharjoitusohjelma. Ohjelmalla voi harjoitella sotilaattomia perusloppupelejä pelaamalla ohjelman kuningasta vastaan. Ohjelma tuntee shakkisäännöt. Peli päättyy joko mattiin, pattiin tai 50 siirron jälkeen, tai asetetun enimmäisajan loputtua.
+Shakin loppupeliharjoitusohjelma. Ohjelmalla voi harjoitella sotilaattomia perusloppupelejä pelaamalla ohjelman kuningasta vastaan. Ohjelma tuntee shakkisäännöt. 
+
+Peli päättyy joko mattiin, pattiin tai 50 siirron jälkeen, tai asetetun enimmäisajan loputtua.
 
 ##Käyttäjät
 Aloittelevat shakkiharrastajat
