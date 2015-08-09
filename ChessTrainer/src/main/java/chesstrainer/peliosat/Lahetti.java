@@ -5,6 +5,7 @@
  */
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
 
 /**
@@ -26,5 +27,12 @@ public class Lahetti extends Nappula implements Liikkuva {
     public void Liikkuu() {
 
     }
-
+@Override
+    public void asetaShakkiSuunnat() {
+        
+        getShakkiSuunnat().add(Suunta.lounas);
+        getShakkiSuunnat().add(Suunta.luode);
+        getShakkiSuunnat().add(Suunta.kaakko);
+        getShakkiSuunnat().add(Suunta.koillinen);
+    }
 }

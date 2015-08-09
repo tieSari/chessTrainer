@@ -9,7 +9,7 @@ package chesstrainer.apuluokat;
  *
  * @author sariraut
  */
-public enum NaapuriRuudut
+public enum Suunta
 {
     pohjoinen,
     koillinen,

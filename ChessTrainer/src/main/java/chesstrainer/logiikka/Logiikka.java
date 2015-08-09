@@ -25,7 +25,7 @@ public class Logiikka {
     public void ArvoAlkuasema(ArrayList<Nappula> nappulat, Pelilauta lauta) {
 
         for (int i = 0; i < nappulat.size(); ++i) {
-            nappulat.get(i).setSijainti(ArvoRuutu(lauta, nappulat.get(i).getVari()));
+            nappulat.get(i).setSijaintiRuutu(ArvoRuutu(lauta, nappulat.get(i).getVari()));
             System.out.println(nappulat.get(i).toString());
         }
     }

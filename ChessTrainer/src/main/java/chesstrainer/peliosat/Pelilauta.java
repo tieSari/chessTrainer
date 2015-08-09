@@ -2,6 +2,7 @@ package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Kirjain;
 import chesstrainer.apuluokat.Sijainti;
+import chesstrainer.apuluokat.Suunta;
 
 /**
  *
@@ -42,29 +43,29 @@ public class Pelilauta {
             for (int j = 0; j < 8; j++) {
 
                 if (j < 7) {
-                    ruudut[i][j].setNaapuriRuutu(ruudut[i][j + 1]);
+                    ruudut[i][j].setNaapuriRuutu(ruudut[i][j + 1], Suunta.ita);
                     if (i < 7) {
-                        ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j + 1]);
+                        ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j + 1], Suunta.koillinen);
                     }
                     if (i > 0) {
-                        ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j + 1]);
+                        ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j + 1], Suunta.kaakko);
                     }
                 }
                 if (i < 7) {
-                    ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j]);
+                    ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j],Suunta.pohjoinen);
 
                     if (j > 0) {
-                        ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j - 1]);
+                        ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j - 1], Suunta.luode);
                     }
                 }
                 if (j > 0) {
-                    ruudut[i][j].setNaapuriRuutu(ruudut[i][j - 1]);
+                    ruudut[i][j].setNaapuriRuutu(ruudut[i][j - 1], Suunta.lansi);
                     if (i > 0) {
-                        ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j - 1]);
+                        ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j - 1], Suunta.lounas);
                     }
                 }
                 if (i > 0) {
-                    ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j]);
+                    ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j], Suunta.etela);
                 }
 
             }

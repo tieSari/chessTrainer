@@ -19,4 +19,10 @@
 ###ke 05.08.2015
 * 2 h pit-raportin generointi, Pelinosa-luokkien koodaus jatkuu
 
+###la 08.08.2015
+* 3 h nappuloiden liikkeisiin liittyvien metodien koodausta
+
+###su 09.08.2015
+* 3 h nappuloiden liikkeisiin liittyvien metodien koodausta, testien tekoa
+
 

@@ -1,4 +1,4 @@
-package chessTrainer.peliosat;
+package chesstrainer.peliosat;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -8,9 +8,8 @@ package chessTrainer.peliosat;
 
 import chesstrainer.apuluokat.Kirjain;
 import chesstrainer.apuluokat.Sijainti;
-import chesstrainer.peliosat.Pelilauta;
-import chesstrainer.peliosat.Ruutu;
-import java.util.ArrayList;
+import chesstrainer.apuluokat.Suunta;
+import java.util.Map;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -58,11 +57,11 @@ public class RuutuTest {
         Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.b, 1));
         Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.b, 2));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
                 && naapurit.size() == 3);
     }
     
@@ -75,11 +74,11 @@ public class RuutuTest {
         Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.g, 1));
         Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.g, 2));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
                 && naapurit.size() == 3);
     }
 
@@ -92,11 +91,11 @@ public class RuutuTest {
         Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.h, 7));
         Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.g, 7));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
                 && naapurit.size() == 3);
     }
     
@@ -109,11 +108,11 @@ public class RuutuTest {
         Ruutu n2 = lauta.getRuutu(new Sijainti(Kirjain.a, 7));
         Ruutu n3 = lauta.getRuutu(new Sijainti(Kirjain.b, 7));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
                 && naapurit.size() == 3);
     }
     
@@ -131,16 +130,16 @@ public class RuutuTest {
         Ruutu n7 = lauta.getRuutu(new Sijainti(Kirjain.e, 6));
         Ruutu n8 = lauta.getRuutu(new Sijainti(Kirjain.c, 6));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu>  naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
-                && naapurit.contains(n4)
-                && naapurit.contains(n5)
-                && naapurit.contains(n6)
-                && naapurit.contains(n7)
-                && naapurit.contains(n8)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
+                && naapurit.containsValue(n4)
+                && naapurit.containsValue(n5)
+                && naapurit.containsValue(n6)
+                && naapurit.containsValue(n7)
+                && naapurit.containsValue(n8)
                 && naapurit.size() == 8);
     }
     
@@ -155,13 +154,13 @@ public class RuutuTest {
         Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.g, 2));
         Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.g, 1));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu>  naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
-                && naapurit.contains(n4)
-                && naapurit.contains(n5)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
+                && naapurit.containsValue(n4)
+                && naapurit.containsValue(n5)
                 && naapurit.size() == 5);
     }
     
@@ -176,13 +175,13 @@ public class RuutuTest {
         Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.a, 7));
         Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.b, 7));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
-                && naapurit.contains(n4)
-                && naapurit.contains(n5)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
+                && naapurit.containsValue(n4)
+                && naapurit.containsValue(n5)
                 && naapurit.size() == 5);
     }
      
@@ -197,13 +196,13 @@ public class RuutuTest {
         Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.b, 4));
         Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.b, 6));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
-                && naapurit.contains(n4)
-                && naapurit.contains(n5)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
+                && naapurit.containsValue(n4)
+                && naapurit.containsValue(n5)
                 && naapurit.size() == 5);
     }
      
@@ -218,13 +217,13 @@ public class RuutuTest {
         Ruutu n4 = lauta.getRuutu(new Sijainti(Kirjain.g, 4));
         Ruutu n5 = lauta.getRuutu(new Sijainti(Kirjain.g, 6));
 
-        ArrayList<Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        Map<Suunta,Ruutu> naapurit = ruutu.getNaapuriRuudut();
 
-        Assert.assertTrue(naapurit.contains(n1)
-                && naapurit.contains(n2)
-                && naapurit.contains(n3)
-                && naapurit.contains(n4)
-                && naapurit.contains(n5)
+        Assert.assertTrue(naapurit.containsValue(n1)
+                && naapurit.containsValue(n2)
+                && naapurit.containsValue(n3)
+                && naapurit.containsValue(n4)
+                && naapurit.containsValue(n5)
                 && naapurit.size() == 5);
     }
 }

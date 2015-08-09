@@ -1,22 +1,22 @@
-
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Sijainti;
-import java.util.ArrayList;
+import chesstrainer.apuluokat.Suunta;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author sariraut
  */
-
 public class Ruutu {
-    
-   // public String name;
-    
-    private Sijainti sijainti;
+
+    // public String name;
+    private final Sijainti sijainti;
     private Nappula nappula;
     private boolean valkeaShakkaa;
     private boolean mustaShakkaa;
+    private final HashMap<Suunta, Ruutu> naapuriRuudut;
 
     public void setValkeaShakkaa(boolean valkeaShakkaa) {
         this.valkeaShakkaa = valkeaShakkaa;
@@ -46,42 +46,34 @@ public class Ruutu {
         return sijainti;
     }
 
-    
-    private ArrayList<Ruutu> naapuriRuudut;
-
-    public ArrayList<Ruutu> getNaapuriRuudut() {
+    public HashMap<Suunta, Ruutu> getNaapuriRuudut() {
         return naapuriRuudut;
     }
 
-    public void setNaapuriRuutu(Ruutu naapuriRuutu) {
-        this.naapuriRuudut.add(naapuriRuutu);
+    public Ruutu getNaapuriRuutu(Suunta suunta) {
+        return naapuriRuudut.get(suunta);
     }
-    
-    public Ruutu(ArrayList<Ruutu> naapuriRuudut)
-    {
-        this.naapuriRuudut = new ArrayList<>();
-        this.naapuriRuudut = naapuriRuudut;
+
+    public void setNaapuriRuutu(Ruutu naapuriRuutu, Suunta suunta) {
+        this.naapuriRuudut.put(suunta, naapuriRuutu);
     }
-    
-    public Ruutu(Sijainti sijainti)
-    {
-        this.naapuriRuudut = new ArrayList<>();
+
+    public Ruutu(Sijainti sijainti) {
+        this.naapuriRuudut = new HashMap<>();
         this.sijainti = sijainti;
         this.nappula = null;
     }
 
-    public void tulostaNaapuriRuudut()
-    {
-        System.out.println("minun "+toString()+" naapurit;\n");
-        for(Ruutu naapuri: naapuriRuudut)
-        {
+    public void tulostaNaapuriRuudut() {
+        System.out.println("minun " + toString() + " naapurit;\n");
+        for (Ruutu naapuri : naapuriRuudut.values()) {
             System.out.println(naapuri.toString());
         }
     }
-    
+
     @Override
     public String toString() {
         return sijainti.toString();
     }
-    
+
 }
