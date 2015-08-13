@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * @author sariraut
  */
-public class Ratsu extends Nappula implements Liikkuva {
+public class Ratsu extends Nappula {
 
     public Ratsu(Vari vari) {
         super(vari);
@@ -23,11 +23,6 @@ public class Ratsu extends Nappula implements Liikkuva {
     @Override
     public char getNimi() {
         return 'R';
-    }
-
-    @Override
-    public void Liikkuu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

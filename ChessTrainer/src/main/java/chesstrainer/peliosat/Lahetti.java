@@ -12,7 +12,7 @@ import chesstrainer.apuluokat.Vari;
  *
  * @author sariraut
  */
-public class Lahetti extends Nappula implements Liikkuva {
+public class Lahetti extends Nappula {
 
     public Lahetti(Vari vari) {
         super(vari);
@@ -23,10 +23,6 @@ public class Lahetti extends Nappula implements Liikkuva {
         return 'L';
     }
 
-    @Override
-    public void Liikkuu() {
-
-    }
 @Override
     public void asetaShakkiSuunnat() {
         

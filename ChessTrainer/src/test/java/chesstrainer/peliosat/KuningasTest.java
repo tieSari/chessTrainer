@@ -14,7 +14,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -23,6 +22,7 @@ import static org.junit.Assert.*;
 public class KuningasTest {
 
     Pelilauta lauta;
+    Nappula kunkku;
 
     public KuningasTest() {
     }
@@ -38,6 +38,8 @@ public class KuningasTest {
     @Before
     public void setUp() {
         lauta = new Pelilauta();
+        kunkku = new Kuningas(Vari.Valkea);
+        lauta.addNappula(kunkku);
     }
 
     @After
@@ -47,9 +49,8 @@ public class KuningasTest {
     @Test
     public void OnkoKeskustaKunkunShakkiRuudutOikein() {
 
-        Nappula kunkku = new Kuningas(Vari.Valkea);
-        kunkku.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.d, 4)));
-        kunkku.asetaShakkiruudut();
+        kunkku.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.d, 4)));       
+        lauta.TeeSiirronJalkeisetToimet();
 
         Assert.assertTrue(kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.e, 5)))
                 && kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.c, 3)))
@@ -65,9 +66,8 @@ public class KuningasTest {
     @Test
     public void OnkoKulmaKunkunShakkiRuudutOikein() {
 
-        Nappula kunkku = new Kuningas(Vari.Valkea);
         kunkku.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.h, 1)));
-        kunkku.asetaShakkiruudut();
+        lauta.TeeSiirronJalkeisetToimet();
 
         Assert.assertTrue(kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.h, 2)))
                 && kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.g, 2)))

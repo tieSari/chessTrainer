@@ -23,12 +23,7 @@ public class Kuningatar extends Nappula implements Liikkuva{
         return 'D'; 
     }
     
-    @Override
-    public void Liikkuu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
+      
     @Override
     public void asetaShakkiSuunnat() {
         

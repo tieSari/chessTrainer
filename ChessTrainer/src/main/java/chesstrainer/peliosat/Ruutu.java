@@ -3,7 +3,6 @@ package chesstrainer.peliosat;
 import chesstrainer.apuluokat.Sijainti;
 import chesstrainer.apuluokat.Suunta;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -76,4 +75,15 @@ public class Ruutu {
         return sijainti.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Ruutu)) {
+            return false;
+        }
+        Ruutu ruutu = (Ruutu) o;
+
+        return (this.getSijainti().equals(ruutu.getSijainti()));
+
+    }
+    
 }

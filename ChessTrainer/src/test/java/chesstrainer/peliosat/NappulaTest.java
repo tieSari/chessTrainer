@@ -5,19 +5,10 @@
  */
 package chesstrainer.peliosat;
 
-import chesstrainer.apuluokat.Kirjain;
-import chesstrainer.apuluokat.Sijainti;
-import chesstrainer.apuluokat.Vari;
-import chesstrainer.peliosat.Nappula;
-import chesstrainer.peliosat.Pelilauta;
-import chesstrainer.peliosat.Ratsu;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

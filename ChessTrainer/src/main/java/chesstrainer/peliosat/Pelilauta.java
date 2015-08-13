@@ -3,6 +3,7 @@ package chesstrainer.peliosat;
 import chesstrainer.apuluokat.Kirjain;
 import chesstrainer.apuluokat.Sijainti;
 import chesstrainer.apuluokat.Suunta;
+import java.util.ArrayList;
 
 /**
  *
@@ -11,10 +12,24 @@ import chesstrainer.apuluokat.Suunta;
 public class Pelilauta {
 
     private final Ruutu[][] ruudut;
+    private ArrayList<Nappula> nappulat; 
 
     public Pelilauta() {
         this.ruudut = new Ruutu[8][8];
+        this.nappulat = new ArrayList<>();
         luoLauta();
+    }
+
+    public ArrayList<Nappula> getNappulat() {
+        return nappulat;
+    }
+
+    public void setNappulat(ArrayList<Nappula> nappulat) {
+        this.nappulat = nappulat;
+    }
+
+    public void addNappula(Nappula nappula) {
+        this.nappulat.add(nappula);
     }
 
     private void luoLauta() {
@@ -32,6 +47,10 @@ public class Pelilauta {
 
         }
 
+    }
+
+    public Ruutu[][] getRuudut() {
+        return ruudut;
     }
 
     public Ruutu getRuutu(Sijainti sijainti) {
@@ -52,7 +71,7 @@ public class Pelilauta {
                     }
                 }
                 if (i < 7) {
-                    ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j],Suunta.pohjoinen);
+                    ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j], Suunta.pohjoinen);
 
                     if (j > 0) {
                         ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j - 1], Suunta.luode);
@@ -70,6 +89,28 @@ public class Pelilauta {
 
             }
 
+        }
+    }
+
+    public void TeeSiirronJalkeisetToimet() {
+        TyhjennaRuudutShakeista();
+        AsetaNappuloidenVaikutusRuudut();
+    }
+
+    private void TyhjennaRuudutShakeista() {
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                ruudut[i][j].setValkeaShakkaa(false);
+                ruudut[i][j].setMustaShakkaa(false);
+            }
+
+        }
+    }
+
+    private void AsetaNappuloidenVaikutusRuudut() {
+        for (Nappula nappula : getNappulat()) {
+            nappula.asetaShakkiruudut();
         }
     }
 

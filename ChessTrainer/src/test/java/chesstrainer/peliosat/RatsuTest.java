@@ -8,16 +8,12 @@ package chesstrainer.peliosat;
 import chesstrainer.apuluokat.Kirjain;
 import chesstrainer.apuluokat.Sijainti;
 import chesstrainer.apuluokat.Vari;
-import chesstrainer.peliosat.Nappula;
-import chesstrainer.peliosat.Pelilauta;
-import chesstrainer.peliosat.Ratsu;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -26,6 +22,7 @@ import static org.junit.Assert.*;
 public class RatsuTest {
 
     Pelilauta lauta;
+    Nappula ratsu;
 
     public RatsuTest() {
     }
@@ -41,6 +38,8 @@ public class RatsuTest {
     @Before
     public void setUp() {
         lauta = new Pelilauta();
+        ratsu = new Ratsu(Vari.Valkea);
+        lauta.addNappula(ratsu);
     }
 
     @After
@@ -50,9 +49,9 @@ public class RatsuTest {
     @Test
     public void OnkoReunaRatsunShakkiRuudutOikein() {
 
-        Nappula ratsu = new Ratsu(Vari.Valkea);
         ratsu.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.b, 8)));
-        ratsu.asetaShakkiruudut();
+        lauta.TeeSiirronJalkeisetToimet();
+        //ratsu.asetaShakkiruudut();
 
         Assert.assertTrue(ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.a, 6)))
                 && ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.c, 6)))
@@ -63,9 +62,8 @@ public class RatsuTest {
     @Test
     public void OnkoKeskustaRatsunShakkiRuudutOikein() {
 
-        Nappula ratsu = new Ratsu(Vari.Valkea);
         ratsu.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.d, 4)));
-        ratsu.asetaShakkiruudut();
+        lauta.TeeSiirronJalkeisetToimet();
 
         Assert.assertTrue(ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.e, 6)))
                 && ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.e, 2)))

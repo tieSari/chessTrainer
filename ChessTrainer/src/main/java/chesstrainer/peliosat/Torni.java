@@ -7,13 +7,12 @@ package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
-import java.util.Map;
 
 /**
  *
  * @author sariraut
  */
-public class Torni extends Nappula implements Liikkuva {
+public class Torni extends Nappula {
 
     public Torni(Vari vari) {
         super(vari);
@@ -31,10 +30,5 @@ public class Torni extends Nappula implements Liikkuva {
     @Override
     public char getNimi() {
         return 'T';
-    }
-
-    @Override
-    public void Liikkuu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

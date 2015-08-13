@@ -5,12 +5,14 @@
  */
 package chesstrainer.apuluokat;
 
+import java.util.Objects;
+
 /**
  *
  * @author sariraut
  */
 public class Sijainti {
-        
+
     private Kirjain kirjain;
     private int numero;
 
@@ -18,7 +20,7 @@ public class Sijainti {
         this.kirjain = kirjain;
         this.numero = numero;
     }
-   
+
     public Kirjain getKirjain() {
         return kirjain;
     }
@@ -37,9 +39,26 @@ public class Sijainti {
 
     @Override
     public String toString() {
-        return ""+getKirjain() + getNumero();
+        return "" + getKirjain() + getNumero();
     }
-    
-    
-    
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Sijainti)) {
+            return false;
+        }
+        Sijainti sij = (Sijainti) o;
+
+        return (this.getKirjain().equals(sij.getKirjain())
+                && this.getNumero() == sij.getNumero());
+        
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.kirjain);
+        hash = 59 * hash + this.numero;
+        return hash;
+    }
 }

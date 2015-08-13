@@ -9,7 +9,7 @@ import java.util.Map;
  *
  * @author sariraut
  */
-public abstract class Nappula {
+public abstract class Nappula implements Liikkuva {
 
     private final Vari vari;
     private Ruutu sijaintiRuutu;
@@ -37,11 +37,22 @@ public abstract class Nappula {
     }
 
     public void setSijaintiRuutu(Ruutu sijaintiRuutu) {
+        
+        if (this.getSijaintiRuutu() != null) {
+            this.getSijaintiRuutu().setNappula(null);
+        }
         this.sijaintiRuutu = sijaintiRuutu;
+        this.getSijaintiRuutu().setNappula(this);
+        //asetaShakkiruudut();
     }
 
     public ArrayList<Ruutu> getShakkiRuudut() {
         return shakkiRuudut;
+    }
+
+    public void setShakkiRuudut(ArrayList<Ruutu> ruudut) {
+        
+        this.shakkiRuudut = ruudut;
     }
 
     public void lisaaShakkiRuutu(Ruutu shakkiRuutu) {
@@ -55,6 +66,8 @@ public abstract class Nappula {
     public abstract void asetaShakkiSuunnat();
 
     public void asetaShakkiruudut() {
+
+        setShakkiRuudut(new ArrayList<Ruutu>());
 
         for (Suunta shakkisuunta : getShakkiSuunnat()) {
 
@@ -81,6 +94,14 @@ public abstract class Nappula {
     @Override
     public String toString() {
         return getVari() + " " + getNimi() + " " + sijaintiRuutu.toString();
+    }
+
+    @Override
+    public void Liikkuu(Ruutu uusiRuutu) {
+        if (shakkiRuudut.contains(uusiRuutu)) {
+            setSijaintiRuutu(uusiRuutu);
+           // asetaShakkiruudut();
+        }
     }
 
 }

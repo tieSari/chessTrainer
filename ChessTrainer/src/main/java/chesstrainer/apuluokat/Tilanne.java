@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chesstrainer.peliosat;
+package chesstrainer.apuluokat;
 
 /**
  *
  * @author sariraut
  */
-public interface Liikkuva {
+public enum Tilanne {
     
-    /**
-     *
-     * @param uusiRuutu
-     */
-    public void Liikkuu(Ruutu uusiRuutu);
+    OK,
+    MATTI,
+    PATTI,
+    SIIRROT_TAYNNA;   
     
 }

@@ -25,4 +25,13 @@
 ###su 09.08.2015
 * 3 h nappuloiden liikkeisiin liittyvien metodien koodausta, testien tekoa
 
+###ma 10.08.2015
+* 2 h testikäyttöliittymän koodausta
+
+###ti 11.08.2015
+* 1 h testikäyttöliittymän koodausta
+
+###ke 12.08.2015
+* 2 h Logiikka-luokalle lisää testejä,hajonneiden testien korjausta, luokkakaavion tarkennusta
+
 

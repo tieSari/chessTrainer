@@ -1,17 +1,18 @@
 /**
- * 
+ *
  */
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
  *
  * @author sariraut
  */
-public class Kuningas extends Nappula implements Liikkuva{
+public class Kuningas extends Nappula {
 
     public Kuningas(Vari vari) {
         super(vari);
@@ -19,16 +20,13 @@ public class Kuningas extends Nappula implements Liikkuva{
 
     @Override
     public char getNimi() {
-        return 'K'; 
-    }
-
-    @Override
-    public void Liikkuu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 'K';
     }
 
     @Override
     public void asetaShakkiruudut() {
+
+        setShakkiRuudut(new ArrayList<Ruutu>());
 
         for (Suunta shakkisuunta : getShakkiSuunnat()) {
 
@@ -44,10 +42,11 @@ public class Kuningas extends Nappula implements Liikkuva{
 
             ruutu = naapurit.get(shakkisuunta);
             if (ruutu != null && ruutu.getNappula() == null) {
-                if(getVari()==Vari.Valkea)
-                ruutu.setValkeaShakkaa(true);
-                else
+                if (getVari() == Vari.Valkea) {
+                    ruutu.setValkeaShakkaa(true);
+                } else {
                     ruutu.setMustaShakkaa(true);
+                }
                 lisaaShakkiRuutu(ruutu);
             }
         }
@@ -64,7 +63,7 @@ public class Kuningas extends Nappula implements Liikkuva{
         getShakkiSuunnat().add(Suunta.luode);
         getShakkiSuunnat().add(Suunta.kaakko);
         getShakkiSuunnat().add(Suunta.koillinen);
-    
+
     }
-    
+
 }
