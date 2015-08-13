@@ -34,4 +34,7 @@
 ###ke 12.08.2015
 * 2 h Logiikka-luokalle lisää testejä,hajonneiden testien korjausta, luokkakaavion tarkennusta
 
+###to 13.08.2015
+* 3 h pelilogiikan ja testien korjausta 
+
 
