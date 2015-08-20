@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package chesstrainer.apuluokat;
 
 import java.util.EnumSet;
@@ -10,8 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
- * @author sariraut
+ *enum-luokka shakkilaudan kirjaimille
  */
 public enum Kirjain {
 

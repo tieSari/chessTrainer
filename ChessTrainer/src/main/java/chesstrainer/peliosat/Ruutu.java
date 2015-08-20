@@ -1,3 +1,4 @@
+
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Sijainti;
@@ -5,8 +6,8 @@ import chesstrainer.apuluokat.Suunta;
 import java.util.HashMap;
 
 /**
- *
- * @author sariraut
+ * Shakkilaudan ruutu-luokka. Ruutu tietää sijaintinsa ja naapuriruutunsa. 
+ * Ruutu tietää myös kulkeeko sen kautta jonkin nappulan vaikutusreitti.
  */
 public class Ruutu {
 

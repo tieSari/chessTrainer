@@ -1,8 +1,12 @@
 package chesstrainer;
 
+import chesstrainer.UI.GraafinenKayttis;
+import chesstrainer.UI.TekstiKayttis;
 import chesstrainer.logiikka.Logiikka;
 import chesstrainer.peliosat.Pelilauta;
 import java.io.IOException;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -11,12 +15,36 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String args[]) throws IOException {
-        
-        Logiikka logiikka = new Logiikka();
-        Pelilauta pelilauta = new Pelilauta();
-        
-        TekstiKayttis testiUI = new TekstiKayttis(pelilauta, logiikka);
-        testiUI.Pelaa();
+
+        final Logiikka logiikka = new Logiikka();
+       final Pelilauta pelilauta = new Pelilauta();
+
+//        TekstiKayttis testiUI = new TekstiKayttis(pelilauta, logiikka);
+//        testiUI.Pelaa();
+
+        Runnable r = new Runnable() {
+
+            @Override
+            public void run() {
+                GraafinenKayttis cg = new GraafinenKayttis(pelilauta, logiikka);
+
+                JFrame f = new JFrame("Chess Trainer");
+                f.add(cg.getGui());
+                // Ensures JVM closes after frame(s) closed and
+                // all non-daemon threads are finished
+                f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                // See http://stackoverflow.com/a/7143398/418556 for demo.
+                f.setLocationByPlatform(true);
+
+                // ensures the frame is the minimum size it needs to be
+                // in order display the components within it
+                f.pack();
+                // ensures the minimum size is enforced.
+                f.setMinimumSize(f.getSize());
+                f.setVisible(true);
+            }
+        };
+        SwingUtilities.invokeLater(r);
     }
 
 }

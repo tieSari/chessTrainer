@@ -1,3 +1,4 @@
+
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Suunta;
@@ -6,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- *
- * @author sariraut
+ * Abstrakti yliluokka eri shakkinappulatyypeille.
+ * Implementoi Liikkuva-rajapinnan.
  */
 public abstract class Nappula implements Liikkuva {
 
@@ -37,7 +38,7 @@ public abstract class Nappula implements Liikkuva {
     }
 
     public void setSijaintiRuutu(Ruutu sijaintiRuutu) {
-        
+
         if (this.getSijaintiRuutu() != null) {
             this.getSijaintiRuutu().setNappula(null);
         }
@@ -51,7 +52,7 @@ public abstract class Nappula implements Liikkuva {
     }
 
     public void setShakkiRuudut(ArrayList<Ruutu> ruudut) {
-        
+
         this.shakkiRuudut = ruudut;
     }
 
@@ -65,6 +66,10 @@ public abstract class Nappula implements Liikkuva {
 
     public abstract void asetaShakkiSuunnat();
 
+/**
+ * asettaa nappulan vaikutusruudut. Valkean nappulan vaikutus katkeaa,
+ * jos reitille osuus toinen valkea nappula.
+ */
     public void asetaShakkiruudut() {
 
         setShakkiRuudut(new ArrayList<Ruutu>());
@@ -82,7 +87,13 @@ public abstract class Nappula implements Liikkuva {
             }
 
             ruutu = naapurit.get(shakkisuunta);
-            while (ruutu != null && ruutu.getNappula() == null) {
+            Nappula nappula = ruutu != null ? ruutu.getNappula() : null;
+            
+            while (ruutu != null &&
+                    (nappula == null || 
+                    (nappula instanceof Kuningas && 
+                    nappula.getVari() == Vari.Musta))) {
+
                 ruutu.setValkeaShakkaa(true);
                 lisaaShakkiRuutu(ruutu);
                 naapurit = ruutu.getNaapuriRuudut();
@@ -97,10 +108,11 @@ public abstract class Nappula implements Liikkuva {
     }
 
     @Override
-    public void Liikkuu(Ruutu uusiRuutu) {
+    public void Liikkuu(Ruutu uusiRuutu
+    ) {
         if (shakkiRuudut.contains(uusiRuutu)) {
             setSijaintiRuutu(uusiRuutu);
-           // asetaShakkiruudut();
+            // asetaShakkiruudut();
         }
     }
 

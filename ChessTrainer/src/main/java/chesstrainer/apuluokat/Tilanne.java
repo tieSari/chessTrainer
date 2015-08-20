@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package chesstrainer.apuluokat;
 
 /**
- *
- * @author sariraut
+ *enum-luokka mahdollisille pelitilanteille.
  */
 public enum Tilanne {
     
     OK,
     MATTI,
     PATTI,
-    SIIRROT_TAYNNA;   
+    SIIRROT_TAYNNA,
+    VIRHE;
     
 }

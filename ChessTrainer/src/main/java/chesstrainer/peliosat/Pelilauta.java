@@ -1,3 +1,4 @@
+
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Kirjain;
@@ -6,8 +7,9 @@ import chesstrainer.apuluokat.Suunta;
 import java.util.ArrayList;
 
 /**
- *
- * @author sariraut
+ * Pelilauta-luokka vastaa ruutujen luonnista ja niiden naapuriruutujen
+ * tallennuksesta. Se tietää laudalla olevat nappulat ja huolehtii niiden
+ * vaikutusruutujen ylläpidosta.
  */
 public class Pelilauta {
 
@@ -91,7 +93,12 @@ public class Pelilauta {
 
         }
     }
-
+/**
+ * Jokaisen valkean ja mustan siirron jälkeen tyhjentää pelilaudan
+ * ruudut shakeista ja asettaa nappuloiden vaikutusruudut uudelleen,
+ * koska nappulan siirrolla voi olla vaikutusta toisten nappuloiden
+ * vaikutusruutuihin.
+ */
     public void TeeSiirronJalkeisetToimet() {
         TyhjennaRuudutShakeista();
         AsetaNappuloidenVaikutusRuudut();

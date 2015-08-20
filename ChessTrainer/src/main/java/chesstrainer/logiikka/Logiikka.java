@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package chesstrainer.logiikka;
 
 import chesstrainer.apuluokat.Kirjain;
@@ -16,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * Ohjelman pelilogiikkaan liittyvät toiminnot
  *
- * @author sariraut
  */
 public class Logiikka {
 
@@ -28,14 +23,21 @@ public class Logiikka {
         return siirtojaTehty;
     }
 
-    public void setSiirtojaTehty(int siirtojaTehty) {
-        this.siirtojaTehty = siirtojaTehty;
+    public void setSiirtojaTehty() {
+        this.siirtojaTehty++;
     }
 
+    /**
+     * Pelin alussa arvotaan loppupeliin kuuluvien nappuloiden alkuasemat. Jos
+     * arvottu sijainti on vastustajan nappulan vaikutusruudulla, arvotaan uusi
+     * sijainti.
+     *
+     * @param lauta
+     */
     public void ArvoAlkuasema(Pelilauta lauta) {
-        
+
         ArrayList<Nappula> nappulat = lauta.getNappulat();
-        
+
         for (Nappula nappula : nappulat) {
             nappula.setSijaintiRuutu(ArvoRuutu(lauta, nappula.getVari()));
             lauta.TeeSiirronJalkeisetToimet();
@@ -65,29 +67,34 @@ public class Logiikka {
     }
 
     public Tilanne SiirraMustaKunkku(Nappula kunkku) {
+        try {
 
-        siirtojaTehty++;
-        if (siirtojaTehty >= 50) {
-            return Tilanne.SIIRROT_TAYNNA;
-        }
-
-        ArrayList<Ruutu> vierusRuudut = kunkku.getShakkiRuudut();
-        int lkm = vierusRuudut.size();
-        //arvotaan ruutu, josta mahdollisten siirtojen tutkiminen aloitetaan
-        int eka = randomGenerator.nextInt(lkm);
-
-        for (int i = 0; i < lkm; i++) {
-            Ruutu ruutu = vierusRuudut.get(eka);
-            if (!ruutu.isValkeaShakkaa() && ruutu.getNappula() == null) {
-                kunkku.Liikkuu(ruutu);
-                return Tilanne.OK;
+            setSiirtojaTehty();
+            if (siirtojaTehty >= 50) {
+                return Tilanne.SIIRROT_TAYNNA;
             }
-            eka = eka < (lkm - 1) ? eka + 1 : 0;
+
+            ArrayList<Ruutu> vierusRuudut = kunkku.getShakkiRuudut();
+            int lkm = vierusRuudut.size();
+            //arvotaan ruutu, josta mahdollisten siirtojen tutkiminen aloitetaan
+            int eka = randomGenerator.nextInt(lkm);
+
+            for (int i = 0; i < lkm; i++) {
+                Ruutu ruutu = vierusRuudut.get(eka);
+                if (!ruutu.isValkeaShakkaa() && ruutu.getNappula() == null) {
+                    kunkku.Liikkuu(ruutu);
+                    return Tilanne.OK;
+                }
+                eka = eka < (lkm - 1) ? eka + 1 : 0;
+            }
+            if (kunkku.getSijaintiRuutu().isValkeaShakkaa()) {
+                return Tilanne.MATTI;
+            } else {
+                return Tilanne.PATTI;
+            }
+        } catch (Exception e) {
+            System.out.println("Virhe mustan kunkun siirrossa."+e.getMessage());
         }
-        if (kunkku.getSijaintiRuutu().isValkeaShakkaa()) {
-            return Tilanne.MATTI;
-        } else {
-            return Tilanne.PATTI;
-        }
+        return Tilanne.VIRHE;
     }
 }

@@ -37,4 +37,16 @@
 ###to 13.08.2015
 * 3 h pelilogiikan ja testien korjausta 
 
+###la 15.08.2015
+* 2 h graafisen käyttöliittymän aloitusta 
+
+###ma 17.08.2015
+* 2h käyttöliittymän koodausta
+
+###ti 18.08.2015
+* 3h JavaDocin kirjoittamista, testien tekoa
+
+###to 20.08.2015
+* 2h viestiyhteyskaavioiden tekoa
+
 

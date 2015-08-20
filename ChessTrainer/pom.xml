@@ -18,6 +18,11 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jdesktop</groupId>
+            <artifactId>beansbinding</artifactId>
+            <version>1.2.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -34,6 +39,16 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.1.4</version>
+                <configuration>
+                    <targetClasses>
+                        <param>chesstrainer.logiikka.*</param>
+                        <param>chesstrainer.peliosat.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>chesstrainer..logiikka.*</param>
+                        <param>chesstrainer.peliosat.*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

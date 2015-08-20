@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package chesstrainer.apuluokat;
 
 import java.util.Objects;
 
 /**
+ * Nappulan tai ruudun sijainti shakkilaudalla määritetään
+ * Sijainti-luokan kirjain- ja numero-muuttujien yhdistelmän perusteella.
  *
- * @author sariraut
  */
 public class Sijainti {
 

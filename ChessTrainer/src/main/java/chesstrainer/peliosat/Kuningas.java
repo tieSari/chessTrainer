@@ -1,6 +1,4 @@
-/**
- *
- */
+
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Suunta;
@@ -9,8 +7,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- *
- * @author sariraut
+ * Nappula-luokasta periytetty Kuningas-nappula
  */
 public class Kuningas extends Nappula {
 
@@ -41,7 +38,11 @@ public class Kuningas extends Nappula {
             }
 
             ruutu = naapurit.get(shakkisuunta);
-            if (ruutu != null && ruutu.getNappula() == null) {
+            if (ruutu == null) {
+                continue;
+            }
+            Nappula nappula = ruutu.getNappula();
+            if (nappula == null || (nappula instanceof Kuningas && nappula.getVari() == Vari.Musta)) {
                 if (getVari() == Vari.Valkea) {
                     ruutu.setValkeaShakkaa(true);
                 } else {
