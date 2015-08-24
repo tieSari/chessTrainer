@@ -9,7 +9,8 @@ public enum Loppupeli {
     DaamiJaKuningas(1),
     TorniJaKuningas(2),
     KaksiTorniaJaKuningas(3),
-    RatsuJaLahettiJaKuningas(4);
+    RatsuJaLahettiJaKuningas(4),
+    KaksiLahettiaJaKuningas(5);
     
     private final int value;
 

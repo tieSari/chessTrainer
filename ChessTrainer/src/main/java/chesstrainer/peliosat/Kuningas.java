@@ -1,8 +1,7 @@
 package chesstrainer.peliosat;
 
-import chesstrainer.apuluokat.Arvo;
-import chesstrainer.apuluokat.Suunta;
-import chesstrainer.apuluokat.Vari;
+import chesstrainer.rakenteet.Nappula;
+import chesstrainer.apuluokat.*;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -24,18 +23,17 @@ public class Kuningas extends Nappula {
     public void asetaShakkiruudut() {
 
         setShakkiRuudut(new ArrayList<Ruutu>());
+        Ruutu ruutu = this.getSijaintiRuutu();
+        if (ruutu == null) {
+            return;
+        }
+
+        Map<Suunta, Ruutu> naapurit = ruutu.getNaapuriRuudut();
+        if (naapurit == null) {
+            return;
+        }
 
         for (Suunta shakkisuunta : getShakkiSuunnat()) {
-
-            Ruutu ruutu = this.getSijaintiRuutu();
-            if (ruutu == null) {
-                return;
-            }
-
-            Map<Suunta, Ruutu> naapurit = ruutu.getNaapuriRuudut();
-            if (naapurit == null) {
-                return;
-            }
 
             ruutu = naapurit.get(shakkisuunta);
             if (ruutu == null) {
@@ -48,9 +46,9 @@ public class Kuningas extends Nappula {
                 } else {
                     ruutu.setMustaShakkaa(true);
                 }
-                if (nappula == null) {
-                    lisaaShakkiRuutu(ruutu);
-                }
+                // if (nappula == null) {
+                lisaaShakkiRuutu(ruutu);
+                // }
             }
         }
     }

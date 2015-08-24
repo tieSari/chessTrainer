@@ -1,6 +1,7 @@
 
 package chesstrainer.peliosat;
 
+import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;

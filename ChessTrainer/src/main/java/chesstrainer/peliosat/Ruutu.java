@@ -1,6 +1,7 @@
 
 package chesstrainer.peliosat;
 
+import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.Sijainti;
 import chesstrainer.apuluokat.Suunta;
 import java.util.HashMap;

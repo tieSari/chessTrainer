@@ -1,5 +1,7 @@
 
-package chesstrainer.peliosat;
+package chesstrainer.rakenteet;
+
+import chesstrainer.peliosat.Ruutu;
 
 /**
  * Rajapintaluokka, jonka Liikkuu-metodin nappulat toteuttavat

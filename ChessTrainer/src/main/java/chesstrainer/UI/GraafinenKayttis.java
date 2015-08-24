@@ -2,6 +2,8 @@ package chesstrainer.UI;
 
 //shakkilauta pohjautuu esimerkkiin
 //http://stackoverflow.com/questions/21142686/making-a-robust-resizable-swing-chess-gui
+import chesstrainer.rakenteet.NappulaTehdas;
+import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.*;
 import chesstrainer.logiikka.Logiikka;
 import chesstrainer.peliosat.*;
@@ -20,13 +22,14 @@ public class GraafinenKayttis {
     private final Image[][] chessPieceImages = new Image[2][6];
     private JPanel chessBoard;
     private final JComboBox valikko = new JComboBox(
-            new Object[]{Loppupeli.DaamiJaKuningas, Loppupeli.TorniJaKuningas, Loppupeli.KaksiTorniaJaKuningas, Loppupeli.RatsuJaLahettiJaKuningas});
+            new Object[]{Loppupeli.DaamiJaKuningas, Loppupeli.TorniJaKuningas, 
+                Loppupeli.KaksiTorniaJaKuningas, Loppupeli.RatsuJaLahettiJaKuningas,
+            Loppupeli.KaksiLahettiaJaKuningas});
     private final JLabel message = new JLabel(
             "Valitse loppupeli");
     private static final String COLS = "ABCDEFGH";
     private Logiikka logiikka;
     private Pelilauta pelilauta;
-    private int loppupeli = 2;
     private JButton activeSquare = null;
     private Nappula siirrettava = null;
     private Nappula mK;
@@ -47,7 +50,7 @@ public class GraafinenKayttis {
         JToolBar tools = new JToolBar();
         tools.setFloatable(false);
         gui.add(tools, BorderLayout.PAGE_START);
-        Action newGameAction = new AbstractAction("New") {
+        Action newGameAction = new AbstractAction("Uusi") {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -178,7 +181,7 @@ public class GraafinenKayttis {
      * Valitun loppupelin mukaiset nappulat arvotaan laudalle
      */
     private void setupNewGame() {
-        
+        message.setText("");
         isActive = true;
         for (Nappula nappula : pelilauta.getNappulat()) {
             AsetaNappulaIkoni(nappula, false);
@@ -238,7 +241,8 @@ public class GraafinenKayttis {
                     nollaaSiirtotapahtuma();
                     Tilanne tilanne = SiirraMustanKunkkua();
                     if (tilanne != Tilanne.OK) {
-                        message.setText("Lopputulos: " + tilanne);
+                        JOptionPane.showMessageDialog(null, tilanne + "!", "Lopputulos", JOptionPane.INFORMATION_MESSAGE);
+                        message.setText("Valitse loppupeli");
                         isActive = false;
                     }
 

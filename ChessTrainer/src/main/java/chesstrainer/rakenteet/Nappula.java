@@ -1,8 +1,8 @@
-package chesstrainer.peliosat;
+package chesstrainer.rakenteet;
 
-import chesstrainer.apuluokat.Arvo;
-import chesstrainer.apuluokat.Suunta;
-import chesstrainer.apuluokat.Vari;
+import chesstrainer.apuluokat.*;
+import chesstrainer.peliosat.Kuningas;
+import chesstrainer.peliosat.Ruutu;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -44,7 +44,6 @@ public abstract class Nappula implements Liikkuva {
         }
         this.sijaintiRuutu = sijaintiRuutu;
         this.getSijaintiRuutu().setNappula(this);
-        //asetaShakkiruudut();
     }
 
     public ArrayList<Ruutu> getShakkiRuudut() {
@@ -64,6 +63,9 @@ public abstract class Nappula implements Liikkuva {
         return shakkiSuunnat;
     }
 
+    /**
+     * asettaa ilmansuunnat, joihin nappula voi liikkua. 
+     */
     public abstract void asetaShakkiSuunnat();
 
     /**
@@ -95,11 +97,12 @@ public abstract class Nappula implements Liikkuva {
                     && nappula.getVari() == Vari.Musta))) {
 
                 ruutu.setValkeaShakkaa(true);
-                if (nappula == null) {
+//                if (nappula == null) {
                     lisaaShakkiRuutu(ruutu);
-                }
+//                }
                 naapurit = ruutu.getNaapuriRuudut();
                 ruutu = naapurit.get(shakkisuunta);
+                nappula = ruutu != null ? ruutu.getNappula() : null;
             }
         }
     }

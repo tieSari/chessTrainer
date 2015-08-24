@@ -5,6 +5,8 @@
  */
 package chesstrainer.UI;
 
+import chesstrainer.rakenteet.NappulaTehdas;
+import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.*;
 import chesstrainer.logiikka.*;
 import chesstrainer.peliosat.*;

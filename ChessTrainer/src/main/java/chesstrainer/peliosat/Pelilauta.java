@@ -1,8 +1,7 @@
 package chesstrainer.peliosat;
 
-import chesstrainer.apuluokat.Kirjain;
-import chesstrainer.apuluokat.Sijainti;
-import chesstrainer.apuluokat.Suunta;
+import chesstrainer.rakenteet.Nappula;
+import chesstrainer.apuluokat.*;
 import java.util.ArrayList;
 
 /**
@@ -46,7 +45,7 @@ public class Pelilauta {
         luoRuudut();
         asetaNaapuriRuudut();
     }
-    
+
     public void tyhjennaLauta() {
         TyhjennaRuudutShakeista();
         setNappulat(new ArrayList<Nappula>());
@@ -59,9 +58,7 @@ public class Pelilauta {
 
                 ruudut[i][j] = new Ruutu(new Sijainti(Kirjain.get(j), 8 - i));
             }
-
         }
-
     }
 
     public Ruutu[][] getRuudut() {
@@ -69,10 +66,8 @@ public class Pelilauta {
     }
 
     public Ruutu getRuutu(Sijainti sijainti) {
-        
-       // return ruudut[sijainti.getKirjain().getValue()][sijainti.getNumero() - 1];
+
         return ruudut[7 - (sijainti.getNumero() - 1)][sijainti.getKirjain().getValue()];
-        
     }
 
     private void asetaNaapuriRuudut() {
@@ -134,7 +129,10 @@ public class Pelilauta {
     private void AsetaNappuloidenVaikutusRuudut() {
         for (Nappula nappula : getNappulat()) {
             nappula.asetaShakkiruudut();
+            System.out.println(nappula.getArvo() + nappula.getVari().toString() + nappula.getShakkiRuudut());
         }
+        System.out.println("");
+
     }
 
     @Override

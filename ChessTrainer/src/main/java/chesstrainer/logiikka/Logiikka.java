@@ -1,5 +1,7 @@
+
 package chesstrainer.logiikka;
 
+import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.*;
 import chesstrainer.peliosat.*;
 import java.util.ArrayList;
@@ -61,6 +63,18 @@ public class Logiikka {
         return new Sijainti(k, luku);
     }
 
+        /**
+     * Siirretään mustan kuningas ruutuun, jota valkean nappula ei shakkaa
+     * ja joka on tyhjä
+     * arvotaan sijainti, josta kunkun vierusruutujen tutkiminen aloitetaan
+     *
+     * @param kunkku, siirrettävä mustan kuningas
+     * @return a) Tilanne.OK -> peli jatkuu
+     * b) Tilanne.PATTI, jos kunkulla ei siirtoja eikä ole shakissa
+     * c) Tilanne.MATTI, jos kunkulla ei siirtoja ja shakissa
+     * d) Tilanne.SIIRROT_TAYNNA, jos 50 siirtoa tehty
+     */
+    
     public Tilanne SiirraMustaKunkku(Nappula kunkku) {
         try {
 

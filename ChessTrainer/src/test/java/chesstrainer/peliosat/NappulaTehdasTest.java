@@ -4,6 +4,8 @@
  */
 package chesstrainer.peliosat;
 
+import chesstrainer.rakenteet.NappulaTehdas;
+import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Loppupeli;
 import java.util.ArrayList;

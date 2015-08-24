@@ -1,8 +1,9 @@
 
-package chesstrainer.peliosat;
+package chesstrainer.rakenteet;
 
 import chesstrainer.apuluokat.Loppupeli;
 import chesstrainer.apuluokat.Vari;
+import chesstrainer.peliosat.*;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +35,6 @@ public class NappulaTehdas {
     public static ArrayList<Nappula> LuoValkeat(Loppupeli loppupeli) {
 
         ArrayList<Nappula> nappulat = new ArrayList<>();
-        //nappulat.add(LuoKuningas(Vari.Musta));
         nappulat.add(LuoKuningas(Vari.Valkea));
 
         switch (loppupeli) {
@@ -53,6 +53,11 @@ public class NappulaTehdas {
             }
              case RatsuJaLahettiJaKuningas: {
                 nappulat.add(LuoRatsu(Vari.Valkea));
+                nappulat.add(LuoLahetti(Vari.Valkea));
+                break;
+            }
+              case KaksiLahettiaJaKuningas: {
+                nappulat.add(LuoLahetti(Vari.Valkea));
                 nappulat.add(LuoLahetti(Vari.Valkea));
                 break;
             }

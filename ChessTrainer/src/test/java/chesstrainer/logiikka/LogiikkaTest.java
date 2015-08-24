@@ -4,6 +4,7 @@
  */
 package chesstrainer.logiikka;
 
+import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.*;
 import chesstrainer.peliosat.*;
 import junit.framework.Assert;
