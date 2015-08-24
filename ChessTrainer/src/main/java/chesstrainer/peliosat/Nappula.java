@@ -1,20 +1,20 @@
-
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
 import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * Abstrakti yliluokka eri shakkinappulatyypeille.
- * Implementoi Liikkuva-rajapinnan.
+ * Abstrakti yliluokka eri shakkinappulatyypeille. Implementoi
+ * Liikkuva-rajapinnan.
  */
 public abstract class Nappula implements Liikkuva {
 
     private final Vari vari;
     private Ruutu sijaintiRuutu;
-    private char nimi;
+    private Arvo arvo;
     private final ArrayList<Suunta> shakkiSuunnat;
     private ArrayList<Ruutu> shakkiRuudut;
 
@@ -25,8 +25,8 @@ public abstract class Nappula implements Liikkuva {
         asetaShakkiSuunnat();
     }
 
-    public char getNimi() {
-        return nimi;
+    public Arvo getArvo() {
+        return arvo;
     }
 
     public Vari getVari() {
@@ -66,10 +66,10 @@ public abstract class Nappula implements Liikkuva {
 
     public abstract void asetaShakkiSuunnat();
 
-/**
- * asettaa nappulan vaikutusruudut. Valkean nappulan vaikutus katkeaa,
- * jos reitille osuus toinen valkea nappula.
- */
+    /**
+     * asettaa nappulan vaikutusruudut. Valkean nappulan vaikutus katkeaa, jos
+     * reitille osuus toinen valkea nappula.
+     */
     public void asetaShakkiruudut() {
 
         setShakkiRuudut(new ArrayList<Ruutu>());
@@ -88,14 +88,16 @@ public abstract class Nappula implements Liikkuva {
 
             ruutu = naapurit.get(shakkisuunta);
             Nappula nappula = ruutu != null ? ruutu.getNappula() : null;
-            
-            while (ruutu != null &&
-                    (nappula == null || 
-                    (nappula instanceof Kuningas && 
-                    nappula.getVari() == Vari.Musta))) {
+
+            while (ruutu != null
+                    && (nappula == null
+                    || (nappula instanceof Kuningas
+                    && nappula.getVari() == Vari.Musta))) {
 
                 ruutu.setValkeaShakkaa(true);
-                lisaaShakkiRuutu(ruutu);
+                if (nappula == null) {
+                    lisaaShakkiRuutu(ruutu);
+                }
                 naapurit = ruutu.getNaapuriRuudut();
                 ruutu = naapurit.get(shakkisuunta);
             }
@@ -104,16 +106,17 @@ public abstract class Nappula implements Liikkuva {
 
     @Override
     public String toString() {
-        return getVari() + " " + getNimi() + " " + sijaintiRuutu.toString();
+        return getVari() + " " + getArvo() + " " + sijaintiRuutu.toString();
     }
 
     @Override
-    public void Liikkuu(Ruutu uusiRuutu
+    public boolean Liikkuu(Ruutu uusiRuutu
     ) {
         if (shakkiRuudut.contains(uusiRuutu)) {
             setSijaintiRuutu(uusiRuutu);
-            // asetaShakkiruudut();
+            return true;
         }
+        return false;
     }
 
 }

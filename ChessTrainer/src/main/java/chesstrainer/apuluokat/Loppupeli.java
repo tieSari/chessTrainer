@@ -6,10 +6,10 @@ package chesstrainer.apuluokat;
  */
 public enum Loppupeli {
 
-    DK(1),
-    TK(2),
-    TTK(3),
-    RLK(4);
+    DaamiJaKuningas(1),
+    TorniJaKuningas(2),
+    KaksiTorniaJaKuningas(3),
+    RatsuJaLahettiJaKuningas(4);
     
     private final int value;
 

@@ -1,6 +1,6 @@
-
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ public class Kuningas extends Nappula {
     }
 
     @Override
-    public char getNimi() {
-        return 'K';
+    public Arvo getArvo() {
+        return Arvo.KUNINGAS;
     }
 
     @Override
@@ -48,7 +48,9 @@ public class Kuningas extends Nappula {
                 } else {
                     ruutu.setMustaShakkaa(true);
                 }
-                lisaaShakkiRuutu(ruutu);
+                if (nappula == null) {
+                    lisaaShakkiRuutu(ruutu);
+                }
             }
         }
     }

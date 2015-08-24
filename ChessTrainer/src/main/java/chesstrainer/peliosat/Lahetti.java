@@ -1,6 +1,7 @@
 
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
 
@@ -14,8 +15,8 @@ public class Lahetti extends Nappula {
     }
 
     @Override
-    public char getNimi() {
-        return 'L';
+    public Arvo getArvo() {
+        return Arvo.LAHETTI;
     }
 
 @Override

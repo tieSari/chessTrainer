@@ -1,12 +1,7 @@
 package chesstrainer.logiikka;
 
-import chesstrainer.apuluokat.Kirjain;
-import chesstrainer.apuluokat.Sijainti;
-import chesstrainer.apuluokat.Tilanne;
-import chesstrainer.apuluokat.Vari;
-import chesstrainer.peliosat.Nappula;
-import chesstrainer.peliosat.Pelilauta;
-import chesstrainer.peliosat.Ruutu;
+import chesstrainer.apuluokat.*;
+import chesstrainer.peliosat.*;
 import java.util.ArrayList;
 import java.util.Random;
 

@@ -10,14 +10,14 @@ import java.util.Map;
  */
 public enum Kirjain {
 
-    h(0),
-    g(1),
-    f(2),
-    e(3),
-    d(4),
-    c(5),
-    b(6),
-    a(7);
+    h(7),
+    g(6),
+    f(5),
+    e(4),
+    d(3),
+    c(2),
+    b(1),
+    a(0);
 
     private final int value;
 

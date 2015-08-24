@@ -9,7 +9,8 @@ public interface Liikkuva {
     /**
      *
      * @param uusiRuutu
+     * @return onkoLiikkuminenOk
      */
-    public void Liikkuu(Ruutu uusiRuutu);
+    public boolean Liikkuu(Ruutu uusiRuutu);
     
 }

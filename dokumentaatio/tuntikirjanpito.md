@@ -49,4 +49,10 @@
 ###to 20.08.2015
 * 2h viestiyhteyskaavioiden tekoa
 
+###su 23.08.2015
+* 3h käyttöliittymän koodausta
+
+###ma 24.08.2015
+* 6h käyttöliittymän koodausta, bugien korjausta
+
 

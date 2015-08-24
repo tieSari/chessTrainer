@@ -1,17 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Nappuloiden luontiluokan testit
+ * 
  */
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Loppupeli;
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -23,37 +20,25 @@ public class NappulaTehdasTest {
     public NappulaTehdasTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void LuokoLuoValkeatNappulatRLKOikein() {
-        ArrayList<Nappula> valkeat = NappulaTehdas.LuoValkeat(Loppupeli.RLK);
-        Assert.assertTrue(valkeat.get(0).getNimi()=='K');
-        Assert.assertTrue(valkeat.get(1).getNimi()=='R');
-        Assert.assertTrue(valkeat.get(2).getNimi()=='L');
+        ArrayList<Nappula> valkeat = NappulaTehdas.LuoValkeat(Loppupeli.RatsuJaLahettiJaKuningas);
+        Assert.assertTrue(valkeat.get(0).getArvo()==Arvo.KUNINGAS);
+        Assert.assertTrue(valkeat.get(1).getArvo()==Arvo.RATSU);
+        Assert.assertTrue(valkeat.get(2).getArvo()==Arvo.LAHETTI);
 
     }
     
     @Test
     public void LuokoLuoValkeatNappulatTTKOikein() {
-        ArrayList<Nappula> valkeat = NappulaTehdas.LuoValkeat(Loppupeli.TTK);
-        Assert.assertTrue(valkeat.get(0).getNimi()=='K');
-        Assert.assertTrue(valkeat.get(1).getNimi()=='T');
-        Assert.assertTrue(valkeat.get(2).getNimi()=='T');
+        ArrayList<Nappula> valkeat = NappulaTehdas.LuoValkeat(Loppupeli.KaksiTorniaJaKuningas);
+        Assert.assertTrue(valkeat.get(0).getArvo()==Arvo.KUNINGAS);
+        Assert.assertTrue(valkeat.get(1).getArvo()==Arvo.TORNI);
+        Assert.assertTrue(valkeat.get(2).getArvo()==Arvo.TORNI);
 
     }
 }

@@ -1,6 +1,7 @@
 
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
 
@@ -23,7 +24,7 @@ public class Torni extends Nappula {
     }
 
     @Override
-    public char getNimi() {
-        return 'T';
+    public  Arvo getArvo() {
+        return Arvo.TORNI;
     }
 }

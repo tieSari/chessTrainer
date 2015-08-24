@@ -1,6 +1,7 @@
 
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
 
@@ -14,8 +15,8 @@ public class Kuningatar extends Nappula implements Liikkuva{
     }
 
     @Override
-    public char getNimi() {
-        return 'D'; 
+    public Arvo getArvo() {
+        return Arvo.DAAMI; 
     }
     
       

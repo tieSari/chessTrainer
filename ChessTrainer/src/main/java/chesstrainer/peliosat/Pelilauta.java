@@ -1,4 +1,3 @@
-
 package chesstrainer.peliosat;
 
 import chesstrainer.apuluokat.Kirjain;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 public class Pelilauta {
 
     private final Ruutu[][] ruudut;
-    private ArrayList<Nappula> nappulat; 
+    private ArrayList<Nappula> nappulat;
 
     public Pelilauta() {
         this.ruudut = new Ruutu[8][8];
@@ -24,6 +23,15 @@ public class Pelilauta {
 
     public ArrayList<Nappula> getNappulat() {
         return nappulat;
+    }
+
+    public Nappula getNappula(Sijainti sijainti) {
+        for (Nappula nappula : getNappulat()) {
+            if (nappula.getSijaintiRuutu().equals(new Ruutu(sijainti))) {
+                return nappula;
+            }
+        }
+        return null;
     }
 
     public void setNappulat(ArrayList<Nappula> nappulat) {
@@ -38,13 +46,18 @@ public class Pelilauta {
         luoRuudut();
         asetaNaapuriRuudut();
     }
+    
+    public void tyhjennaLauta() {
+        TyhjennaRuudutShakeista();
+        setNappulat(new ArrayList<Nappula>());
+    }
 
     private void luoRuudut() {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                ruudut[i][j] = new Ruutu(new Sijainti(Kirjain.get(i), j + 1));
+                ruudut[i][j] = new Ruutu(new Sijainti(Kirjain.get(j), 8 - i));
             }
 
         }
@@ -56,7 +69,10 @@ public class Pelilauta {
     }
 
     public Ruutu getRuutu(Sijainti sijainti) {
-        return ruudut[sijainti.getKirjain().getValue()][sijainti.getNumero() - 1];
+        
+       // return ruudut[sijainti.getKirjain().getValue()][sijainti.getNumero() - 1];
+        return ruudut[7 - (sijainti.getNumero() - 1)][sijainti.getKirjain().getValue()];
+        
     }
 
     private void asetaNaapuriRuudut() {
@@ -93,12 +109,12 @@ public class Pelilauta {
 
         }
     }
-/**
- * Jokaisen valkean ja mustan siirron jälkeen tyhjentää pelilaudan
- * ruudut shakeista ja asettaa nappuloiden vaikutusruudut uudelleen,
- * koska nappulan siirrolla voi olla vaikutusta toisten nappuloiden
- * vaikutusruutuihin.
- */
+
+    /**
+     * Jokaisen valkean ja mustan siirron jälkeen tyhjentää pelilaudan ruudut
+     * shakeista ja asettaa nappuloiden vaikutusruudut uudelleen, koska nappulan
+     * siirrolla voi olla vaikutusta toisten nappuloiden vaikutusruutuihin.
+     */
     public void TeeSiirronJalkeisetToimet() {
         TyhjennaRuudutShakeista();
         AsetaNappuloidenVaikutusRuudut();

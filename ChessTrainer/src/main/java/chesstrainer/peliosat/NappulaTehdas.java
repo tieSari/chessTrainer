@@ -38,20 +38,20 @@ public class NappulaTehdas {
         nappulat.add(LuoKuningas(Vari.Valkea));
 
         switch (loppupeli) {
-            case DK: {
+            case DaamiJaKuningas: {
                 nappulat.add(LuoKuningatar(Vari.Valkea));
                 break;
             }
-            case TK: {
+            case TorniJaKuningas: {
                 nappulat.add(LuoTorni(Vari.Valkea));
                 break;
             }
-            case TTK: {
+            case KaksiTorniaJaKuningas: {
                 nappulat.add(LuoTorni(Vari.Valkea));
                 nappulat.add(LuoTorni(Vari.Valkea));
                 break;
             }
-             case RLK: {
+             case RatsuJaLahettiJaKuningas: {
                 nappulat.add(LuoRatsu(Vari.Valkea));
                 nappulat.add(LuoLahetti(Vari.Valkea));
                 break;

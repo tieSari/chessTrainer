@@ -1,6 +1,7 @@
 
 package chesstrainer.peliosat;
 
+import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
 import java.util.HashMap;
@@ -16,8 +17,8 @@ public class Ratsu extends Nappula {
     }
 
     @Override
-    public char getNimi() {
-        return 'R';
+    public Arvo getArvo() {
+        return Arvo.RATSU;
     }
 
     @Override

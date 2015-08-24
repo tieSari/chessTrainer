@@ -1,18 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Kuningas-nappulan testit
+ * 
  */
 package chesstrainer.peliosat;
 
-import chesstrainer.apuluokat.Kirjain;
-import chesstrainer.apuluokat.Sijainti;
-import chesstrainer.apuluokat.Vari;
-import org.junit.After;
-import org.junit.AfterClass;
+import chesstrainer.apuluokat.*;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -27,23 +21,11 @@ public class KuningasTest {
     public KuningasTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         lauta = new Pelilauta();
         kunkku = new Kuningas(Vari.Valkea);
         lauta.addNappula(kunkku);
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test
