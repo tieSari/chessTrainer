@@ -1,12 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Testikäyttöliittymä koodausvaiheen toiminnallisuuden testaamiseen
+ * 
  */
 package chesstrainer.UI;
 
-import chesstrainer.rakenteet.NappulaTehdas;
-import chesstrainer.rakenteet.Nappula;
+import chesstrainer.rakenteet.*;
 import chesstrainer.apuluokat.*;
 import chesstrainer.logiikka.*;
 import chesstrainer.peliosat.*;
@@ -73,16 +71,6 @@ public class TekstiKayttis {
         }
 
         System.out.println("tulos: " + tilanne);
-       //arvo asema
-
-        //jos ruudulla jo nappula, ota lähin mahdollinen, joka ei uhattu
-        //kysy valkean siirto
-        //kun valkea siirtää, käynnistä kello
-        //kun valkea siirtänyt pysäytä kello
-        //siirrä mustan kunkku
-        //jos ei siirtoja eikä shakkia, patti
-        //jos shakki, eikä siirtoja, matti
-        //jos 50 siirtoa täynnä, tasapeli
     }
 
     private boolean SiirtoOk(String siirto) {

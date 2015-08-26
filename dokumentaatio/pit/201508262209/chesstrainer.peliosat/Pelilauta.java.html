@@ -1,0 +1,2797 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Pelilauta.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package chesstrainer.peliosat;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import chesstrainer.rakenteet.Nappula;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import chesstrainer.apuluokat.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Pelilauta-luokka vastaa ruutujen luonnista ja niiden naapuriruutujen</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * tallennuksesta. Se tiet&#228;&#228; laudalla olevat nappulat ja huolehtii niiden</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * vaikutusruutujen yll&#228;pidosta.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Pelilauta {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Ruutu[][] ruudut;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ArrayList&#60;Nappula&#62; nappulat;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Pelilauta() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_18'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.ruudut = new Ruutu[8][8];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.nappulat = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_20'>1</a>
+<span>
+1. <init> : removed call to chesstrainer/peliosat/Pelilauta::luoLauta &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        luoLauta();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ArrayList&#60;Nappula&#62; getNappulat() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_24'>1</a>
+<span>
+1. getNappulat : mutated return of Object value for chesstrainer/peliosat/Pelilauta::getNappulat to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return nappulat;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Nappula getNappula(Sijainti sijainti) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_28'/>
+28
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_28'>1</a>
+<span>
+1. getNappula : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (Nappula nappula : getNappulat()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_29'>1</a>
+<span>
+1. getNappula : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            if (nappula.getSijaintiRuutu().equals(new Ruutu(sijainti))) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_30'/>
+30
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_30'>1</a>
+<span>
+1. getNappula : mutated return of Object value for chesstrainer/peliosat/Pelilauta::getNappula to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return nappula;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_32'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_33'/>
+33
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_33'>1</a>
+<span>
+1. getNappula : mutated return of Object value for chesstrainer/peliosat/Pelilauta::getNappula to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setNappulat(ArrayList&#60;Nappula&#62; nappulat) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_37'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        this.nappulat = nappulat;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_38'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addNappula(Nappula nappula) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_41'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.nappulat.add(nappula);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_42'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void luoLauta() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_45'>1</a>
+<span>
+1. luoLauta : removed call to chesstrainer/peliosat/Pelilauta::luoRuudut &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        luoRuudut();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_46'>1</a>
+<span>
+1. luoLauta : removed call to chesstrainer/peliosat/Pelilauta::asetaNaapuriRuudut &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        asetaNaapuriRuudut();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_47'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void tyhjennaLauta() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_50'/>
+50
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_50'>1</a>
+<span>
+1. tyhjennaLauta : removed call to chesstrainer/peliosat/Pelilauta::TyhjennaRuudutShakeista &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        TyhjennaRuudutShakeista();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_51'/>
+51
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_51'>1</a>
+<span>
+1. tyhjennaLauta : removed call to chesstrainer/peliosat/Pelilauta::setNappulat &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        setNappulat(new ArrayList&#60;Nappula&#62;());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_52'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void luoRuudut() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_56'>3</a>
+<span>
+1. luoRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. luoRuudut : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. luoRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; 8; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_57'>3</a>
+<span>
+1. luoRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. luoRuudut : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. luoRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int j = 0; j &#60; 8; j++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_59'/>
+59
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_59'>1</a>
+<span>
+1. luoRuudut : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                ruudut[i][j] = new Ruutu(new Sijainti(Kirjain.get(j), 8 - i));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_62'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Ruutu[][] getRuudut() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_65'/>
+65
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_65'>1</a>
+<span>
+1. getRuudut : mutated return of Object value for chesstrainer/peliosat/Pelilauta::getRuudut to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return ruudut;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Ruutu getRuutu(Sijainti sijainti) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_70'>3</a>
+<span>
+1. getRuutu : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. getRuutu : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. getRuutu : mutated return of Object value for chesstrainer/peliosat/Pelilauta::getRuutu to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ruudut[7 - (sijainti.getNumero() - 1)][sijainti.getKirjain().getValue()];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void asetaNaapuriRuudut() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_74'/>
+74
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_74'>3</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; 8; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_75'>3</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int j = 0; j &#60; 8; j++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_77'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (j &#60; 7) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_78'>2</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    ruudut[i][j].setNaapuriRuutu(ruudut[i][j + 1], Suunta.ita);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_79'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (i &#60; 7) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_80'/>
+80
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_80'>3</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : Replaced integer addition with subtraction &rarr; KILLED<br/>
+3. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j + 1], Suunta.koillinen);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_82'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (i &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_83'>3</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : Replaced integer addition with subtraction &rarr; KILLED<br/>
+3. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j + 1], Suunta.kaakko);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_86'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (i &#60; 7) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_87'>2</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j], Suunta.pohjoinen);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_89'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (j &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_90'>3</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        ruudut[i][j].setNaapuriRuutu(ruudut[i + 1][j - 1], Suunta.luode);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_93'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (j &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_94'>2</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    ruudut[i][j].setNaapuriRuutu(ruudut[i][j - 1], Suunta.lansi);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_95'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (i &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_96'/>
+96
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_96'>3</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                        ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j - 1], Suunta.lounas);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_99'>2</a>
+<span>
+1. asetaNaapuriRuudut : changed conditional boundary &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (i &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_100'>2</a>
+<span>
+1. asetaNaapuriRuudut : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. asetaNaapuriRuudut : removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    ruudut[i][j].setNaapuriRuutu(ruudut[i - 1][j], Suunta.etela);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_104'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_106'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Jokaisen valkean ja mustan siirron j&#228;lkeen tyhjent&#228;&#228; pelilaudan ruudut</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * shakeista ja asettaa nappuloiden vaikutusruudut uudelleen, koska nappulan</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * siirrolla voi olla vaikutusta toisten nappuloiden vaikutusruutuihin.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_112'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_113'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void TeeSiirronJalkeisetToimet() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_114'/>
+114
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_114'>1</a>
+<span>
+1. TeeSiirronJalkeisetToimet : removed call to chesstrainer/peliosat/Pelilauta::TyhjennaRuudutShakeista &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        TyhjennaRuudutShakeista();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_115'/>
+115
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_115'>1</a>
+<span>
+1. TeeSiirronJalkeisetToimet : removed call to chesstrainer/peliosat/Pelilauta::AsetaNappuloidenVaikutusRuudut &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        AsetaNappuloidenVaikutusRuudut();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_116'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_117'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_118'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void TyhjennaRuudutShakeista() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_120'/>
+120
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_120'>3</a>
+<span>
+1. TyhjennaRuudutShakeista : negated conditional &rarr; SURVIVED<br/>
+2. TyhjennaRuudutShakeista : changed conditional boundary &rarr; KILLED<br/>
+3. TyhjennaRuudutShakeista : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 0; i &#60; 8; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_121'/>
+121
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_121'>3</a>
+<span>
+1. TyhjennaRuudutShakeista : negated conditional &rarr; SURVIVED<br/>
+2. TyhjennaRuudutShakeista : changed conditional boundary &rarr; KILLED<br/>
+3. TyhjennaRuudutShakeista : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            for (int j = 0; j &#60; 8; j++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_122'/>
+122
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_122'>1</a>
+<span>
+1. TyhjennaRuudutShakeista : removed call to chesstrainer/peliosat/Ruutu::setValkeaShakkaa &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                ruudut[i][j].setValkeaShakkaa(false);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_123'/>
+123
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_123'>1</a>
+<span>
+1. TyhjennaRuudutShakeista : removed call to chesstrainer/peliosat/Ruutu::setMustaShakkaa &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                ruudut[i][j].setMustaShakkaa(false);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_125'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_127'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_129'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void AsetaNappuloidenVaikutusRuudut() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_130'>1</a>
+<span>
+1. AsetaNappuloidenVaikutusRuudut : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (Nappula nappula : getNappulat()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_131'/>
+131
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_131'>1</a>
+<span>
+1. AsetaNappuloidenVaikutusRuudut : removed call to chesstrainer/rakenteet/Nappula::asetaShakkiruudut &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            nappula.asetaShakkiruudut();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_132'/>
+132
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_132'>1</a>
+<span>
+1. AsetaNappuloidenVaikutusRuudut : removed call to java/io/PrintStream::println &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            System.out.println(nappula.getArvo() + nappula.getVari().toString() + nappula.getShakkiRuudut());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_133'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_134'/>
+134
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_134'>1</a>
+<span>
+1. AsetaNappuloidenVaikutusRuudut : removed call to java/io/PrintStream::println &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        System.out.println(&#34;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_136'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_137'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_139'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_140'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        String tulostus = &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_141'/>
+141
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_141'>3</a>
+<span>
+1. toString : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. toString : Changed increment from 1 to -1 &rarr; NO_COVERAGE<br/>
+3. toString : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (int i = 0; i &#60; 8; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_142'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            tulostus += &#34;\n&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_143'/>
+143
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_143'>3</a>
+<span>
+1. toString : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. toString : Changed increment from 1 to -1 &rarr; NO_COVERAGE<br/>
+3. toString : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            for (int j = 0; j &#60; 8; j++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_144'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_145'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                tulostus += ruudut[i][j].toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_146'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_147'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_148'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_149'/>
+149
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_149'>1</a>
+<span>
+1. toString : mutated return of Object value for chesstrainer/peliosat/Pelilauta::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return tulostus;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_150'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34d02670_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_151'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Pelilauta::luoLauta &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNappulat<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> mutated return of Object value for chesstrainer/peliosat/Pelilauta::getNappulat to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_28'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNappula<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_29'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNappula<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_30'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNappula<br/><b>Killed by : </b>none</span></span> mutated return of Object value for chesstrainer/peliosat/Pelilauta::getNappula to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_33'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNappula<br/><b>Killed by : </b>none</span></span> mutated return of Object value for chesstrainer/peliosat/Pelilauta::getNappula to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luoLauta<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> removed call to chesstrainer/peliosat/Pelilauta::luoRuudut &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luoLauta<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Pelilauta::asetaNaapuriRuudut &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_50'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tyhjennaLauta<br/><b>Killed by : </b>none</span></span> removed call to chesstrainer/peliosat/Pelilauta::TyhjennaRuudutShakeista &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_51'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tyhjennaLauta<br/><b>Killed by : </b>none</span></span> removed call to chesstrainer/peliosat/Pelilauta::setNappulat &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luoRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luoRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>luoRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luoRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luoRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>luoRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_59'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luoRuudut<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_65'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRuudut<br/><b>Killed by : </b>none</span></span> mutated return of Object value for chesstrainer/peliosat/Pelilauta::getRuudut to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRuutu<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getRuutu<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getRuutu<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> mutated return of Object value for chesstrainer/peliosat/Pelilauta::getRuutu to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoKeskiRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoKeskiRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoKeskiRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoKeskiRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>asetaNaapuriRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.RuutuTest.OnkoKeskiRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest)</span></span> removed call to chesstrainer/peliosat/Ruutu::setNaapuriRuutu &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_114'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>TeeSiirronJalkeisetToimet<br/><b>Killed by : </b>none</span></span> removed call to chesstrainer/peliosat/Pelilauta::TyhjennaRuudutShakeista &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_115'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>TeeSiirronJalkeisetToimet<br/><b>Killed by : </b>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest)</span></span> removed call to chesstrainer/peliosat/Pelilauta::AsetaNappuloidenVaikutusRuudut &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_121'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_122'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>none</span></span> removed call to chesstrainer/peliosat/Ruutu::setValkeaShakkaa &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_123'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>TyhjennaRuudutShakeista<br/><b>Killed by : </b>none</span></span> removed call to chesstrainer/peliosat/Ruutu::setMustaShakkaa &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>AsetaNappuloidenVaikutusRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_131'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>AsetaNappuloidenVaikutusRuudut<br/><b>Killed by : </b>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest)</span></span> removed call to chesstrainer/rakenteet/Nappula::asetaShakkiruudut &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_132'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>AsetaNappuloidenVaikutusRuudut<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_134'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>AsetaNappuloidenVaikutusRuudut<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_141'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_143'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34d02670_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34d02670_149'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for chesstrainer/peliosat/Pelilauta::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>chesstrainer.peliosat.TorniTest.OnkoAlaKulmaTorninShakkiRuudutOikein(chesstrainer.peliosat.TorniTest) (2 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoAlaReunaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (6 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoVasemmanReunaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (3 ms)</li><li>chesstrainer.peliosat.RatsuTest.OnkoKeskustaRatsunShakkiRuudutOikein(chesstrainer.peliosat.RatsuTest) (4 ms)</li><li>chesstrainer.peliosat.KuningasTest.OnkoKulmaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest) (4 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoKeskiRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (3 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoOikeanReunaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (3 ms)</li><li>chesstrainer.peliosat.TorniTest.OnkoKeskustaTorninShakkiRuudutOikein(chesstrainer.peliosat.TorniTest) (2 ms)</li><li>chesstrainer.peliosat.KuningasTest.OnkoKeskustaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest) (4 ms)</li><li>chesstrainer.peliosat.KuningatarTest.OnkoKulmaDaaminShakkiRuudutOikein(chesstrainer.peliosat.KuningatarTest) (4 ms)</li><li>chesstrainer.peliosat.TorniTest.OnkoYlaReunanTorninShakkiRuudutOikein(chesstrainer.peliosat.TorniTest) (2 ms)</li><li>chesstrainer.peliosat.RatsuTest.OnkoReunaRatsunShakkiRuudutOikein(chesstrainer.peliosat.RatsuTest) (3 ms)</li><li>chesstrainer.peliosat.PelilautaTest.NappulanLisaaminenLaudalleToimiiOikein(chesstrainer.peliosat.PelilautaTest) (2 ms)</li><li>chesstrainer.peliosat.KuningasTest.OnkoReunaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest) (4 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoOikeanAlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (3 ms)</li><li>chesstrainer.peliosat.LahettiTest.OnkoKulmaLahetinShakkiRuudutOikein(chesstrainer.peliosat.LahettiTest) (3 ms)</li><li>chesstrainer.peliosat.KuningatarTest.OnkoKeskustaDaaminShakkiRuudutOikein(chesstrainer.peliosat.KuningatarTest) (4 ms)</li><li>chesstrainer.peliosat.KuningasTest.OnkoAlaReunaKunkunShakkiRuudutOikein(chesstrainer.peliosat.KuningasTest) (31 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoVasemmanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (2 ms)</li><li>chesstrainer.peliosat.TorniTest.OnkoYlaKulmaTorninShakkiRuudutOikein(chesstrainer.peliosat.TorniTest) (2 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoYlaReunaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (3 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoVasemmanAlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (4 ms)</li><li>chesstrainer.peliosat.RuutuTest.OnkoOikeanYlaKulmaRuudunNaapuritOikein(chesstrainer.peliosat.RuutuTest) (3 ms)</li><li>chesstrainer.peliosat.LahettiTest.OnkoKeskustaLahetinShakkiRuudutOikein(chesstrainer.peliosat.LahettiTest) (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.4
+
+</body>
+</html>

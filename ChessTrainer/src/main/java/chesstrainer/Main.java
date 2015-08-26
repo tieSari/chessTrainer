@@ -1,7 +1,7 @@
 package chesstrainer;
 
 import chesstrainer.UI.GraafinenKayttis;
-import chesstrainer.UI.TekstiKayttis;
+//import chesstrainer.UI.TekstiKayttis;
 import chesstrainer.logiikka.Logiikka;
 import chesstrainer.peliosat.Pelilauta;
 import java.io.IOException;
@@ -10,10 +10,14 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author sariraut
+ * Ohjelman suorituksen käynnistävä luokka.
  */
 public class Main {
 
+ /**
+ *
+ * Luodaan sovelluksen logiikka ja pelilauta sekä käyttöliittymä.
+ */
     public static void main(String args[]) throws IOException {
 
         final Logiikka logiikka = new Logiikka();

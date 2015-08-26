@@ -1,4 +1,3 @@
-
 package chesstrainer.rakenteet;
 
 import chesstrainer.apuluokat.Loppupeli;
@@ -32,6 +31,12 @@ public class NappulaTehdas {
 
     }
 
+    /**
+     * Luo parametrina annetun loppupelityypin mukaiset valkeat nappulat.
+     *
+     * @param loppupeli
+     * @return lista Nappula-olioita
+     */
     public static ArrayList<Nappula> LuoValkeat(Loppupeli loppupeli) {
 
         ArrayList<Nappula> nappulat = new ArrayList<>();
@@ -51,12 +56,12 @@ public class NappulaTehdas {
                 nappulat.add(LuoTorni(Vari.Valkea));
                 break;
             }
-             case RatsuJaLahettiJaKuningas: {
+            case RatsuJaLahettiJaKuningas: {
                 nappulat.add(LuoRatsu(Vari.Valkea));
                 nappulat.add(LuoLahetti(Vari.Valkea));
                 break;
             }
-              case KaksiLahettiaJaKuningas: {
+            case KaksiLahettiaJaKuningas: {
                 nappulat.add(LuoLahetti(Vari.Valkea));
                 nappulat.add(LuoLahetti(Vari.Valkea));
                 break;

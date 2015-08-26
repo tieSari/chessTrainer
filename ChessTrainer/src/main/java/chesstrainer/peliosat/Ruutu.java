@@ -1,18 +1,17 @@
-
 package chesstrainer.peliosat;
 
 import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.Sijainti;
 import chesstrainer.apuluokat.Suunta;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
- * Shakkilaudan ruutu-luokka. Ruutu tietää sijaintinsa ja naapuriruutunsa. 
- * Ruutu tietää myös kulkeeko sen kautta jonkin nappulan vaikutusreitti.
+ * Shakkilaudan ruutu-luokka. Ruutu tietää sijaintinsa ja naapuriruutunsa. Ruutu
+ * tietää myös kulkeeko sen kautta jonkin nappulan vaikutusreitti.
  */
 public class Ruutu {
 
-    // public String name;
     private final Sijainti sijainti;
     private Nappula nappula;
     private boolean valkeaShakkaa;
@@ -65,6 +64,9 @@ public class Ruutu {
         this.nappula = null;
     }
 
+    /**
+     * testausta varten tehty metodi tulostaa ruudun naapuriruudut
+     */
     public void tulostaNaapuriRuudut() {
         System.out.println("minun " + toString() + " naapurit;\n");
         for (Ruutu naapuri : naapuriRuudut.values()) {
@@ -83,9 +85,15 @@ public class Ruutu {
             return false;
         }
         Ruutu ruutu = (Ruutu) o;
-
         return (this.getSijainti().equals(ruutu.getSijainti()));
 
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.sijainti);
+        return hash;
+    }
+
 }

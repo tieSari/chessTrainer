@@ -1,7 +1,5 @@
 package chesstrainer.UI;
 
-//shakkilauta pohjautuu esimerkkiin
-//http://stackoverflow.com/questions/21142686/making-a-robust-resizable-swing-chess-gui
 import chesstrainer.rakenteet.NappulaTehdas;
 import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.*;
@@ -15,6 +13,15 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.imageio.ImageIO;
 
+/**
+ * Ohjelman käyttöliittymäluokka
+ *
+ * Shakkilauta pohjautuu esimerkkiin
+ * http://stackoverflow.com/questions/21142686/making-a-robust-resizable-swing-chess-gui.
+ *
+ * Jätin esimerkin metodien ja attribuuttien nimet alkuperäisiksi, siksi nimissä
+ * sekaisin englantia ja suomea.
+ */
 public class GraafinenKayttis {
 
     private final JPanel gui = new JPanel(new BorderLayout(3, 3));
@@ -22,9 +29,9 @@ public class GraafinenKayttis {
     private final Image[][] chessPieceImages = new Image[2][6];
     private JPanel chessBoard;
     private final JComboBox valikko = new JComboBox(
-            new Object[]{Loppupeli.DaamiJaKuningas, Loppupeli.TorniJaKuningas, 
+            new Object[]{Loppupeli.DaamiJaKuningas, Loppupeli.TorniJaKuningas,
                 Loppupeli.KaksiTorniaJaKuningas, Loppupeli.RatsuJaLahettiJaKuningas,
-            Loppupeli.KaksiLahettiaJaKuningas});
+                Loppupeli.KaksiLahettiaJaKuningas});
     private final JLabel message = new JLabel(
             "Valitse loppupeli");
     private static final String COLS = "ABCDEFGH";
@@ -44,8 +51,20 @@ public class GraafinenKayttis {
     public GraafinenKayttis() {
     }
 
+    /**
+     * luodaan pelilauta ja muut UI:n osat
+     *
+     */
     public final void initializeGui() {
-        // set up the main GUI
+
+        luoToiminnot();
+        luoShakkilauta();
+        luoShakkilaudanRuudut();
+        luoShakkilaudanReunakoodit();
+    }
+
+    private void luoToiminnot() {
+
         gui.setBorder(new EmptyBorder(5, 5, 5, 5));
         JToolBar tools = new JToolBar();
         tools.setFloatable(false);
@@ -67,7 +86,9 @@ public class GraafinenKayttis {
         tools.add(valikko);
 
         gui.add(new JLabel("?"), BorderLayout.LINE_START);
+    }
 
+    private void luoShakkilauta() {
         chessBoard = new JPanel(new GridLayout(0, 9)) {
 
             /**
@@ -79,7 +100,7 @@ public class GraafinenKayttis {
             @Override
             public final Dimension getPreferredSize() {
                 Dimension d = super.getPreferredSize();
-                Dimension prefSize = null;
+                Dimension prefSize;
                 Component c = getParent();
                 if (c == null) {
                     prefSize = new Dimension(
@@ -108,8 +129,9 @@ public class GraafinenKayttis {
         boardConstrain.setBackground(ochre);
         boardConstrain.add(chessBoard);
         gui.add(boardConstrain);
+    }
 
-        // create the chess board squares
+    private void luoShakkilaudanRuudut() {
         Insets buttonMargin = new Insets(0, 0, 0, 0);
         for (int ii = 0; ii < chessBoardSquares.length; ii++) {
             for (int jj = 0; jj < chessBoardSquares[ii].length; jj++) {
@@ -133,10 +155,9 @@ public class GraafinenKayttis {
 
             }
         }
+    }
 
-        /*
-         * fill the chess board
-         */
+    private void luoShakkilaudanReunakoodit() {
         chessBoard.add(new JLabel(""));
         // fill the top row
         for (int ii = 0; ii < 8; ii++) {
@@ -156,6 +177,7 @@ public class GraafinenKayttis {
                 }
             }
         }
+
     }
 
     public final JComponent getGui() {
@@ -183,43 +205,52 @@ public class GraafinenKayttis {
     private void setupNewGame() {
         message.setText("");
         isActive = true;
+
+        tyhjennaLauta();
+        asetaUusiAsema();
+    }
+
+    private JButton haePainoRuutu(Sijainti sijainti) {
+        return chessBoardSquares[7 - (sijainti.getNumero() - 1)][sijainti.getKirjain().getValue()];
+    }
+
+    private void tyhjennaLauta() {
         for (Nappula nappula : pelilauta.getNappulat()) {
-            AsetaNappulaIkoni(nappula, false);
+            asetaNappulaIkoni(nappula, false);
         }
         pelilauta.tyhjennaLauta();
+    }
+
+    private void asetaUusiAsema() {
         pelilauta.setNappulat(NappulaTehdas.LuoValkeat(Loppupeli.valueOf(valikko.getSelectedItem().toString())));
         mK = NappulaTehdas.LuoKuningas(Vari.Musta);
         pelilauta.addNappula(mK);
 
         logiikka.ArvoAlkuasema(pelilauta);
         for (Nappula nappula : pelilauta.getNappulat()) {
-            AsetaNappulaIkoni(nappula, true);
+            asetaNappulaIkoni(nappula, true);
         }
     }
 
-    private JButton HaePainoRuutu(Sijainti sijainti) {
-        return chessBoardSquares[7 - (sijainti.getNumero() - 1)][sijainti.getKirjain().getValue()];
-    }
-
-    private void AsetaNappulaIkoni(Nappula nappula, boolean lisaa) {
+    private void asetaNappulaIkoni(Nappula nappula, boolean lisaa) {
 
         ImageIcon ikoni = lisaa ? new ImageIcon(
                 chessPieceImages[nappula.getVari().getValue()][nappula.getArvo().getValue()]) : null;
         Sijainti sijainti = nappula.getSijaintiRuutu().getSijainti();
-        JButton square = HaePainoRuutu(sijainti);
+        JButton square = haePainoRuutu(sijainti);
         square.setIcon(ikoni);
     }
 
-    private Tilanne SiirraMustanKunkkua() {
+    private Tilanne siirraMustanKunkkua() {
 
         pelilauta.TeeSiirronJalkeisetToimet();
 
-        JButton lahtoRuutu = HaePainoRuutu(mK.getSijaintiRuutu().getSijainti());
+        JButton lahtoRuutu = haePainoRuutu(mK.getSijaintiRuutu().getSijainti());
         Tilanne tilanne = logiikka.SiirraMustaKunkku(mK);
 
         if (tilanne == Tilanne.OK) {
             lahtoRuutu.setIcon(null);
-            AsetaNappulaIkoni(mK, true);
+            asetaNappulaIkoni(mK, true);
             pelilauta.TeeSiirronJalkeisetToimet();
         }
         return tilanne;
@@ -239,7 +270,7 @@ public class GraafinenKayttis {
                 if (siirrettava != null && siirrettava.Liikkuu(haeKohderuutu(clicked))) {
                     clicked.setIcon(activeSquare.getIcon());
                     nollaaSiirtotapahtuma();
-                    Tilanne tilanne = SiirraMustanKunkkua();
+                    Tilanne tilanne = siirraMustanKunkkua();
                     if (tilanne != Tilanne.OK) {
                         JOptionPane.showMessageDialog(null, tilanne + "!", "Lopputulos", JOptionPane.INFORMATION_MESSAGE);
                         message.setText("Valitse loppupeli");

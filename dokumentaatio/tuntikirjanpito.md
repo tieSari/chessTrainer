@@ -55,4 +55,10 @@
 ###ma 24.08.2015
 * 6h käyttöliittymän koodausta, bugien korjausta
 
+###ti 25.08.2015
+* 2h demoon valmistautumista ja demo
+
+###ke 26.08.2015
+* 1h dokumenttien päivitystä
+
 

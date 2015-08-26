@@ -64,7 +64,8 @@ public abstract class Nappula implements Liikkuva {
     }
 
     /**
-     * asettaa ilmansuunnat, joihin nappula voi liikkua. 
+     * asettaa ilmansuunnat, joihin nappula voi liikkua.
+     * jokainen nappulatyyppi toteuttaa omalla tavallaan.
      */
     public abstract void asetaShakkiSuunnat();
 
