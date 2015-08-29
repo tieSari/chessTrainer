@@ -46,17 +46,25 @@ public class Pelilauta {
         asetaNaapuriRuudut();
     }
 
+    /**
+     * Kun uusi peli aloitetaan tyhjennetään lauta shakeista ja nappuloista.
+     *
+     */
     public void tyhjennaLauta() {
         TyhjennaRuudutShakeista();
+        TyhjennaRuudut();
         setNappulat(new ArrayList<Nappula>());
     }
 
     private void luoRuudut() {
 
+        Vari vari = Vari.Musta;
         for (int i = 0; i < 8; i++) {
+            vari = vari == Vari.Valkea ? Vari.Musta : Vari.Valkea;
             for (int j = 0; j < 8; j++) {
 
-                ruudut[i][j] = new Ruutu(new Sijainti(Kirjain.get(j), 8 - i));
+                ruudut[i][j] = new Ruutu(new Sijainti(Kirjain.get(j), 8 - i), vari);
+                vari = vari == Vari.Valkea ? Vari.Musta : Vari.Valkea;
             }
         }
     }
@@ -113,6 +121,7 @@ public class Pelilauta {
     public void TeeSiirronJalkeisetToimet() {
         TyhjennaRuudutShakeista();
         AsetaNappuloidenVaikutusRuudut();
+        TarkistaSuojaukset();
     }
 
     private void TyhjennaRuudutShakeista() {
@@ -126,6 +135,16 @@ public class Pelilauta {
         }
     }
 
+    private void TyhjennaRuudut() {
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                ruudut[i][j].setNappula(null);
+            }
+
+        }
+    }
+
     private void AsetaNappuloidenVaikutusRuudut() {
         for (Nappula nappula : getNappulat()) {
             nappula.asetaShakkiruudut();
@@ -133,6 +152,20 @@ public class Pelilauta {
         }
         System.out.println("");
 
+    }
+
+    private void TarkistaSuojaukset() {
+        for (Nappula nappula : getNappulat()) {
+
+            if (nappula.getVari() == Vari.Musta || nappula.getSijaintiRuutu() == null) {
+                continue;
+            }
+            nappula.setOnSuojattu(false);
+
+            if (nappula.getSijaintiRuutu().isValkeaShakkaa()) {
+                nappula.setOnSuojattu(true);
+            }
+        }
     }
 
     @Override

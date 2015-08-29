@@ -40,17 +40,35 @@ public class Kuningas extends Nappula {
                 continue;
             }
             Nappula nappula = ruutu.getNappula();
-            if (nappula == null || (nappula instanceof Kuningas && nappula.getVari() == Vari.Musta)) {
-                if (getVari() == Vari.Valkea) {
-                    ruutu.setValkeaShakkaa(true);
-                } else {
-                    ruutu.setMustaShakkaa(true);
+
+            if (getVari() == Vari.Valkea) {
+                ruutu.setValkeaShakkaa(true);
+                if (nappula == null) {
+                    lisaaShakkiRuutu(ruutu);
                 }
-                // if (nappula == null) {
+            } else {
+                ruutu.setMustaShakkaa(true);
                 lisaaShakkiRuutu(ruutu);
-                // }
             }
         }
+    }
+
+    @Override
+    public boolean Liikkuu(Ruutu uusiRuutu) {
+        if (getShakkiRuudut().contains(uusiRuutu)) {
+            if (getVari() == Vari.Valkea) {
+                if (!uusiRuutu.isMustaShakkaa()) {
+                    setSijaintiRuutu(uusiRuutu);
+                    return true;
+                }
+            } else {
+                if (uusiRuutu.getNappula() == null || !uusiRuutu.isValkeaShakkaa()) {
+                    setSijaintiRuutu(uusiRuutu);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override

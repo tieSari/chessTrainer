@@ -45,7 +45,7 @@
                         <param>chesstrainer.peliosat.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>chesstrainer..logiikka.*</param>
+                        <param>chesstrainer.logiikka.*</param>
                         <param>chesstrainer.peliosat.*</param>
                     </targetTests>
                 </configuration>

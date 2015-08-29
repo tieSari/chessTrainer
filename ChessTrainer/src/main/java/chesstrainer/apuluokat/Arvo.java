@@ -12,11 +12,11 @@ package chesstrainer.apuluokat;
 public enum Arvo {
 
     KUNINGAS(0),
-    DAAMI(1),
-    TORNI(2),
+    DAAMI(8),
+    TORNI(5),
     RATSU(3),
-    LAHETTI(4),
-    SOTILAS(5);
+    LAHETTI(3),
+    SOTILAS(1);
 
     private final int value;
 

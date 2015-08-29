@@ -1,10 +1,10 @@
-
 package chesstrainer.peliosat;
 
 import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.Arvo;
 import chesstrainer.apuluokat.Suunta;
 import chesstrainer.apuluokat.Vari;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +24,9 @@ public class Ratsu extends Nappula {
 
     @Override
     public void asetaShakkiruudut() {
-
+        
+        setShakkiRuudut(new ArrayList<Ruutu>());
+        
         for (Suunta shakkisuunta : getShakkiSuunnat()) {
             HashMap<Suunta, Ruutu> naapurit;
 
@@ -69,10 +71,10 @@ public class Ratsu extends Nappula {
     private Ruutu asetaRuutuShakki(Map<Suunta, Ruutu> naapurit, Suunta suunta) {
         Ruutu ruutu = naapurit.get(suunta);
 
-        if (ruutu != null && ruutu.getNappula() == null) {
+        if (ruutu != null) {
             ruutu.setValkeaShakkaa(true);
             lisaaShakkiRuutu(ruutu);
-            
+
         }
         return ruutu;
     }

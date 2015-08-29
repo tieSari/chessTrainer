@@ -3,6 +3,7 @@ package chesstrainer.peliosat;
 import chesstrainer.rakenteet.Nappula;
 import chesstrainer.apuluokat.Sijainti;
 import chesstrainer.apuluokat.Suunta;
+import chesstrainer.apuluokat.Vari;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -17,6 +18,7 @@ public class Ruutu {
     private boolean valkeaShakkaa;
     private boolean mustaShakkaa;
     private final HashMap<Suunta, Ruutu> naapuriRuudut;
+    private Vari vari;
 
     public void setValkeaShakkaa(boolean valkeaShakkaa) {
         this.valkeaShakkaa = valkeaShakkaa;
@@ -58,10 +60,20 @@ public class Ruutu {
         this.naapuriRuudut.put(suunta, naapuriRuutu);
     }
 
+    public Vari getVari() {
+        return vari;
+    }
+
     public Ruutu(Sijainti sijainti) {
         this.naapuriRuudut = new HashMap<>();
         this.sijainti = sijainti;
         this.nappula = null;
+        this.vari = Vari.Valkea;
+    }
+
+    public Ruutu(Sijainti sijainti, Vari vari) {
+        this(sijainti);
+        this.vari = vari;
     }
 
     /**

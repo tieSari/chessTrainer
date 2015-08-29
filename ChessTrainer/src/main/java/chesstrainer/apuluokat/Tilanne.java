@@ -10,6 +10,7 @@ public enum Tilanne {
     MATTI,
     PATTI,
     SIIRROT_TAYNNA,
+    EI_MATTIIN_RIITTAVAA_MATERIAALIA,
     VIRHE;
     
 }

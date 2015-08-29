@@ -11,8 +11,18 @@ import chesstrainer.apuluokat.Vari;
  */
 public class Lahetti extends Nappula {
 
+    private Vari ruutuVari;
     public Lahetti(Vari vari) {
         super(vari);
+    }
+    
+    public Lahetti(Vari vari, Vari ruutuVari) {
+        this(vari);
+        this.ruutuVari = ruutuVari;
+    }
+
+    public Vari getRuutuVari() {
+        return ruutuVari;
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.HashMap;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.imageio.ImageIO;
@@ -19,7 +20,7 @@ import javax.imageio.ImageIO;
  * Shakkilauta pohjautuu esimerkkiin
  * http://stackoverflow.com/questions/21142686/making-a-robust-resizable-swing-chess-gui.
  *
- * Jätin esimerkin metodien ja attribuuttien nimet alkuperäisiksi, siksi nimissä
+ * Jätin esimerkin metodien ja attribuuttien nimet alkuperäisiksi, siksi nimissä on
  * sekaisin englantia ja suomea.
  */
 public class GraafinenKayttis {
@@ -41,14 +42,25 @@ public class GraafinenKayttis {
     private Nappula siirrettava = null;
     private Nappula mK;
     private boolean isActive = true;
+    private HashMap<Arvo, Integer> ikonit;
 
     public GraafinenKayttis(Pelilauta lauta, Logiikka logiikka) {
         initializeGui();
+        initIkoniValues();
         this.pelilauta = lauta;
         this.logiikka = logiikka;
     }
 
     public GraafinenKayttis() {
+    }
+
+    private void initIkoniValues() {
+        ikonit = new HashMap<>();
+        int index = 0;
+        for (Arvo arvo : Arvo.values()) {
+            ikonit.put(arvo, index);
+            index++;
+        }
     }
 
     /**
@@ -234,8 +246,9 @@ public class GraafinenKayttis {
 
     private void asetaNappulaIkoni(Nappula nappula, boolean lisaa) {
 
+        int indeksi = ikonit.get(nappula.getArvo());
         ImageIcon ikoni = lisaa ? new ImageIcon(
-                chessPieceImages[nappula.getVari().getValue()][nappula.getArvo().getValue()]) : null;
+                chessPieceImages[nappula.getVari().getValue()][indeksi]) : null;
         Sijainti sijainti = nappula.getSijaintiRuutu().getSijainti();
         JButton square = haePainoRuutu(sijainti);
         square.setIcon(ikoni);
@@ -246,16 +259,19 @@ public class GraafinenKayttis {
         pelilauta.TeeSiirronJalkeisetToimet();
 
         JButton lahtoRuutu = haePainoRuutu(mK.getSijaintiRuutu().getSijainti());
-        Tilanne tilanne = logiikka.SiirraMustaKunkku(mK);
+        Tilanne tilanne = logiikka.SiirraMustaKunkku(mK, pelilauta.getNappulat());
 
-        if (tilanne == Tilanne.OK) {
+        if (tilanne == Tilanne.OK || tilanne == Tilanne.EI_MATTIIN_RIITTAVAA_MATERIAALIA) {
             lahtoRuutu.setIcon(null);
             asetaNappulaIkoni(mK, true);
             pelilauta.TeeSiirronJalkeisetToimet();
         }
         return tilanne;
     }
-
+/**
+ * Tapahtumankuuntelija-luokka nappulansiirroille.
+ * 
+ */
     class RuutuListener implements ActionListener {
 
         @Override

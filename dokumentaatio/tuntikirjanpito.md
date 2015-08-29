@@ -61,4 +61,10 @@
 ###ke 26.08.2015
 * 1h dokumenttien päivitystä
 
+###pe 28.08.2015
+* 3h bugien korjailua ja testausta
+
+###la 29.08.2015
+* 4h uusi toiminnallisuus: kuningas voi syödä suojattoman valkean nappulan, 2 lähetin loppupelissä lähetit aina eri väreillä
+
 

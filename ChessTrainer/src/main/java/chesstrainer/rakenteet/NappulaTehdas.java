@@ -26,8 +26,8 @@ public class NappulaTehdas {
         return new Ratsu(vari);
     }
 
-    public static Nappula LuoLahetti(Vari vari) {
-        return new Lahetti(vari);
+    public static Nappula LuoLahetti(Vari vari, Vari ruutuVari) {
+        return new Lahetti(vari, ruutuVari);
 
     }
 
@@ -58,12 +58,12 @@ public class NappulaTehdas {
             }
             case RatsuJaLahettiJaKuningas: {
                 nappulat.add(LuoRatsu(Vari.Valkea));
-                nappulat.add(LuoLahetti(Vari.Valkea));
+                nappulat.add(LuoLahetti(Vari.Valkea, Vari.Valkea));
                 break;
             }
             case KaksiLahettiaJaKuningas: {
-                nappulat.add(LuoLahetti(Vari.Valkea));
-                nappulat.add(LuoLahetti(Vari.Valkea));
+                nappulat.add(LuoLahetti(Vari.Valkea,Vari.Valkea));
+                nappulat.add(LuoLahetti(Vari.Valkea, Vari.Musta));
                 break;
             }
         }

@@ -65,7 +65,7 @@ public class TekstiKayttis {
             System.out.println(nappula.toString());
             pelilauta.TeeSiirronJalkeisetToimet();
 
-            tilanne = logiikka.SiirraMustaKunkku(mK);
+            tilanne = logiikka.SiirraMustaKunkku(mK, pelilauta.getNappulat());
             System.out.println(mK.toString());
             pelilauta.TeeSiirronJalkeisetToimet();
         }

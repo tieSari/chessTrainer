@@ -17,12 +17,22 @@ public abstract class Nappula implements Liikkuva {
     private Arvo arvo;
     private final ArrayList<Suunta> shakkiSuunnat;
     private ArrayList<Ruutu> shakkiRuudut;
+    private boolean onSuojattu;
 
     public Nappula(Vari vari) {
         this.vari = vari;
         shakkiSuunnat = new ArrayList<>();
         shakkiRuudut = new ArrayList<>();
+        onSuojattu = false;
         asetaShakkiSuunnat();
+    }
+
+    public boolean isOnSuojattu() {
+        return onSuojattu;
+    }
+
+    public void setOnSuojattu(boolean onSuojattu) {
+        this.onSuojattu = onSuojattu;
     }
 
     public Arvo getArvo() {
@@ -64,8 +74,8 @@ public abstract class Nappula implements Liikkuva {
     }
 
     /**
-     * asettaa ilmansuunnat, joihin nappula voi liikkua.
-     * jokainen nappulatyyppi toteuttaa omalla tavallaan.
+     * asettaa ilmansuunnat, joihin nappula voi liikkua. jokainen nappulatyyppi
+     * toteuttaa omalla tavallaan.
      */
     public abstract void asetaShakkiSuunnat();
 
@@ -76,8 +86,9 @@ public abstract class Nappula implements Liikkuva {
     public void asetaShakkiruudut() {
 
         setShakkiRuudut(new ArrayList<Ruutu>());
+        ArrayList<Suunta> suunnat = getShakkiSuunnat();
 
-        for (Suunta shakkisuunta : getShakkiSuunnat()) {
+        for (Suunta shakkisuunta : suunnat) {
 
             Ruutu ruutu = this.getSijaintiRuutu();
             if (ruutu == null) {
@@ -97,26 +108,27 @@ public abstract class Nappula implements Liikkuva {
                     || (nappula instanceof Kuningas
                     && nappula.getVari() == Vari.Musta))) {
 
+                lisaaShakkiRuutu(ruutu);
                 ruutu.setValkeaShakkaa(true);
-//                if (nappula == null) {
-                    lisaaShakkiRuutu(ruutu);
-//                }
+
                 naapurit = ruutu.getNaapuriRuudut();
                 ruutu = naapurit.get(shakkisuunta);
                 nappula = ruutu != null ? ruutu.getNappula() : null;
+            }
+            if (ruutu != null) {
+                ruutu.setValkeaShakkaa(true);
             }
         }
     }
 
     @Override
     public String toString() {
-        return getVari() + " " + getArvo() + " " + sijaintiRuutu.toString();
+        return getVari() + " " + getArvo() + " " + getSijaintiRuutu().toString();
     }
 
     @Override
-    public boolean Liikkuu(Ruutu uusiRuutu
-    ) {
-        if (shakkiRuudut.contains(uusiRuutu)) {
+    public boolean Liikkuu(Ruutu uusiRuutu) {
+        if (getShakkiRuudut().contains(uusiRuutu)) {
             setSijaintiRuutu(uusiRuutu);
             return true;
         }
