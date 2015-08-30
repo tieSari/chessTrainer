@@ -67,4 +67,7 @@
 ###la 29.08.2015
 * 4h uusi toiminnallisuus: kuningas voi syödä suojattoman valkean nappulan, 2 lähetin loppupelissä lähetit aina eri väreillä
 
+###su 30.08.2015
+* 4h dokumenttien kirjoitusta, jar-paketin tekoa yms. viimeistelyä.
+
 

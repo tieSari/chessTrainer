@@ -1,13 +1,11 @@
-
-
 package chesstrainer.apuluokat;
 
 /**
- *enum-luokka ilmansuunnille. Käytetään nappuloiden vaikutusruutujen 
+ * enum-luokka ilmansuunnille. Käytetään nappuloiden vaikutusruutujen
  * määrittämisessä.
  */
-public enum Suunta
-{
+public enum Suunta {
+
     pohjoinen,
     koillinen,
     ita,
@@ -15,5 +13,5 @@ public enum Suunta
     etela,
     lounas,
     lansi,
-    luode    
+    luode
 }

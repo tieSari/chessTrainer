@@ -30,7 +30,7 @@ public class Logiikka {
      *
      * @param lauta
      */
-    public void ArvoAlkuasema(Pelilauta lauta) {
+    public void arvoAlkuasema(Pelilauta lauta) {
 
         ArrayList<Nappula> nappulat = lauta.getNappulat();
         if (nappulat == null) {
@@ -38,17 +38,17 @@ public class Logiikka {
         }
 
         for (Nappula nappula : nappulat) {
-            nappula.setSijaintiRuutu(ArvoRuutu(lauta, nappula));
-            lauta.TeeSiirronJalkeisetToimet();
+            nappula.setSijaintiRuutu(arvoRuutu(lauta, nappula));
+            lauta.teeSiirronJalkeisetToimet();
             System.out.println(nappula.toString());
         }
         siirtojaTehty = 0;
     }
 
-    private Ruutu ArvoRuutu(Pelilauta lauta, Nappula nappula) {
+    private Ruutu arvoRuutu(Pelilauta lauta, Nappula nappula) {
 
         while (true) {
-            Ruutu ruutu = lauta.getRuutu(ArvoSijainti());
+            Ruutu ruutu = lauta.getRuutu(arvoSijainti());
             if (ruutu == null) {
                 continue;
             }
@@ -70,7 +70,7 @@ public class Logiikka {
         }
     }
 
-    private Sijainti ArvoSijainti() {
+    private Sijainti arvoSijainti() {
 
         Kirjain k = Kirjain.get(randomGenerator.nextInt(8));
         int luku = randomGenerator.nextInt(8) + 1;
@@ -85,15 +85,15 @@ public class Logiikka {
      *
      * Arvotaan sijainti, josta kunkun vierusruutujen tutkiminen aloitetaan.
      *
-     * @param kunkku, siirrettävä mustan kuningas
-     * @param nappulat, laudan nappulat
+     * @param kunkku siirrettävä mustan kuningas
+     * @param nappulat laudan nappulat
      * @return a) Tilanne.OK -> peli jatkuu b) Tilanne.PATTI, jos kunkulla ei
      * siirtoja eikä ole shakissa c) Tilanne.MATTI, jos kunkulla ei siirtoja ja
      * shakissa d) Tilanne.SIIRROT_TAYNNA, jos 50 siirtoa tehty. e)
      * Tilanne.EI_MATTIIN_RIITTAVAA_MATERIAALIA, jos kunkku syö valkean nappulan
      * eikä jäljellä oleva materiaali riitä mattiin.
      */
-    public Tilanne SiirraMustaKunkku(Nappula kunkku, ArrayList<Nappula> nappulat) {
+    public Tilanne siirraMustaKunkku(Nappula kunkku, ArrayList<Nappula> nappulat) {
         try {
 
             addSiirtojaTehty();
@@ -103,7 +103,7 @@ public class Logiikka {
 
             ArrayList<Ruutu> vierusRuudut = kunkku.getShakkiRuudut();
 
-            if (Syodaan(vierusRuudut, kunkku, nappulat)) {
+            if (syodaan(vierusRuudut, kunkku, nappulat)) {
                 if (materiaaliRiittaa(nappulat)) {
                     return Tilanne.OK;
                 }
@@ -124,14 +124,14 @@ public class Logiikka {
         return Tilanne.VIRHE;
     }
 
-    boolean Syodaan(ArrayList<Ruutu> vierusRuudut, Nappula kunkku, ArrayList<Nappula> nappulat) {
+    boolean syodaan(ArrayList<Ruutu> vierusRuudut, Nappula kunkku, ArrayList<Nappula> nappulat) {
         for (Ruutu ruutu : vierusRuudut) {
             Nappula nappula = ruutu.getNappula();
             if (nappula != null && !(nappula instanceof Kuningas)) {
                 if (!nappula.isOnSuojattu()) {
                     nappulat.remove(nappula);
                     ruutu.setNappula(null);
-                    kunkku.Liikkuu(ruutu);
+                    kunkku.liikkuu(ruutu);
 
                     return true;
                 }
@@ -162,7 +162,7 @@ public class Logiikka {
             Ruutu ruutu = vierusRuudut.get(eka);
             if (!ruutu.isValkeaShakkaa() && ruutu.getNappula() == null) {
 
-                kunkku.Liikkuu(ruutu);
+                kunkku.liikkuu(ruutu);
                 return true;
             }
             eka = eka < (lkm - 1) ? eka + 1 : 0;

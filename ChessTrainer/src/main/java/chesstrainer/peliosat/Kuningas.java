@@ -54,7 +54,7 @@ public class Kuningas extends Nappula {
     }
 
     @Override
-    public boolean Liikkuu(Ruutu uusiRuutu) {
+    public boolean liikkuu(Ruutu uusiRuutu) {
         if (getShakkiRuudut().contains(uusiRuutu)) {
             if (getVari() == Vari.Valkea) {
                 if (!uusiRuutu.isMustaShakkaa()) {

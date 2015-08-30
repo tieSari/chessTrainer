@@ -54,7 +54,7 @@ public class LogiikkaTest {
             logiikka.addSiirtojaTehty();
         }
 
-        Assert.assertEquals(Tilanne.SIIRROT_TAYNNA, logiikka.SiirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
+        Assert.assertEquals(Tilanne.SIIRROT_TAYNNA, logiikka.siirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class LogiikkaTest {
             logiikka.addSiirtojaTehty();
         }
 
-        Assert.assertNotSame(Tilanne.SIIRROT_TAYNNA, logiikka.SiirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
+        Assert.assertNotSame(Tilanne.SIIRROT_TAYNNA, logiikka.siirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
     }
 
     @Test
@@ -72,17 +72,17 @@ public class LogiikkaTest {
 
         vK.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 6)));
         pelilauta.addNappula(vK);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         pelilauta.addNappula(mKunkku);
         mKunkku.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 8)));
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         vD.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.a, 8)));
         pelilauta.addNappula(vD);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
-        Assert.assertEquals(Tilanne.MATTI, logiikka.SiirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
+        Assert.assertEquals(Tilanne.MATTI, logiikka.siirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
     }
 
     @Test
@@ -90,17 +90,17 @@ public class LogiikkaTest {
 
         vD.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.b, 6)));
         pelilauta.addNappula(vD);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         vK.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.a, 6)));
         pelilauta.addNappula(vK);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         pelilauta.addNappula(mKunkku);
         mKunkku.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.a, 8)));
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
-        Assert.assertEquals(Tilanne.PATTI, logiikka.SiirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
+        Assert.assertEquals(Tilanne.PATTI, logiikka.siirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
     }
 
     @Test
@@ -108,17 +108,17 @@ public class LogiikkaTest {
 
         vD.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.b, 7)));
         pelilauta.addNappula(vD);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         vK.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 6)));
         pelilauta.addNappula(vK);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         pelilauta.addNappula(mKunkku);
         mKunkku.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 8)));
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
-        Assert.assertEquals(Tilanne.OK, logiikka.SiirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
+        Assert.assertEquals(Tilanne.OK, logiikka.siirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
     }
 
     @Test
@@ -126,17 +126,17 @@ public class LogiikkaTest {
 
         vD.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.b, 7)));
         pelilauta.addNappula(vD);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         vK.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 1)));
         pelilauta.addNappula(vK);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         pelilauta.addNappula(mKunkku);
         mKunkku.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 8)));
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
-        Assert.assertEquals(Tilanne.EI_MATTIIN_RIITTAVAA_MATERIAALIA, logiikka.SiirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
+        Assert.assertEquals(Tilanne.EI_MATTIIN_RIITTAVAA_MATERIAALIA, logiikka.siirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
     }
 
     @Test
@@ -144,21 +144,21 @@ public class LogiikkaTest {
 
         vT1.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.b, 7)));
         pelilauta.addNappula(vT1);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         vT2.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.h, 3)));
         pelilauta.addNappula(vT1);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         vK.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 1)));
         pelilauta.addNappula(vK);
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
         pelilauta.addNappula(mKunkku);
         mKunkku.setSijaintiRuutu(pelilauta.getRuutu(new Sijainti(Kirjain.c, 8)));
-        pelilauta.TeeSiirronJalkeisetToimet();
+        pelilauta.teeSiirronJalkeisetToimet();
 
-        Assert.assertEquals(Tilanne.OK, logiikka.SiirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
+        Assert.assertEquals(Tilanne.OK, logiikka.siirraMustaKunkku(mKunkku, pelilauta.getNappulat()));
     }
 
     @Test
@@ -167,7 +167,7 @@ public class LogiikkaTest {
         pelilauta.addNappula(vD);
         pelilauta.addNappula(vK);
 
-        logiikka.ArvoAlkuasema(pelilauta);
+        logiikka.arvoAlkuasema(pelilauta);
         for (Nappula nappula : pelilauta.getNappulat()) {
             Assert.assertNotNull(nappula.getSijaintiRuutu());
         }

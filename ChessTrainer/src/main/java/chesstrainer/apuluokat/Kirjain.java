@@ -1,4 +1,3 @@
-
 package chesstrainer.apuluokat;
 
 import java.util.EnumSet;
@@ -6,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *enum-luokka shakkilaudan kirjaimille
+ * enum-luokka shakkilaudan kirjaimille
  */
 public enum Kirjain {
 
@@ -28,15 +27,16 @@ public enum Kirjain {
     public int getValue() {
         return value;
     }
-    
-    private static final Map<Integer, Kirjain> lookup = new HashMap<>();
- 
+
+    private static final Map<Integer, Kirjain> LOOKUP = new HashMap<>();
+
     static {
-        for (Kirjain k : EnumSet.allOf(Kirjain.class))
-            lookup.put(k.getValue(), k);
+        for (Kirjain k : EnumSet.allOf(Kirjain.class)) {
+            LOOKUP.put(k.getValue(), k);
+        }
     }
- 
+
     public static Kirjain get(int value) {
-        return lookup.get(value);
+        return LOOKUP.get(value);
     }
 }

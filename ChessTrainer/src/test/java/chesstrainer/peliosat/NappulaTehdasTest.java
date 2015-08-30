@@ -28,7 +28,7 @@ public class NappulaTehdasTest {
 
     @Test
     public void LuokoLuoValkeatNappulatRLKOikein() {
-        ArrayList<Nappula> valkeat = NappulaTehdas.LuoValkeat(Loppupeli.RatsuJaLahettiJaKuningas);
+        ArrayList<Nappula> valkeat = NappulaTehdas.luoValkeat(Loppupeli.RatsuJaLahettiJaKuningas);
         Assert.assertTrue(valkeat.get(0).getArvo()==Arvo.KUNINGAS);
         Assert.assertTrue(valkeat.get(1).getArvo()==Arvo.RATSU);
         Assert.assertTrue(valkeat.get(2).getArvo()==Arvo.LAHETTI);
@@ -37,7 +37,7 @@ public class NappulaTehdasTest {
     
     @Test
     public void LuokoLuoValkeatNappulatTTKOikein() {
-        ArrayList<Nappula> valkeat = NappulaTehdas.LuoValkeat(Loppupeli.KaksiTorniaJaKuningas);
+        ArrayList<Nappula> valkeat = NappulaTehdas.luoValkeat(Loppupeli.KaksiTorniaJaKuningas);
         Assert.assertTrue(valkeat.get(0).getArvo()==Arvo.KUNINGAS);
         Assert.assertTrue(valkeat.get(1).getArvo()==Arvo.TORNI);
         Assert.assertTrue(valkeat.get(2).getArvo()==Arvo.TORNI);

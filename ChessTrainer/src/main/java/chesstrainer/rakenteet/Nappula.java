@@ -127,7 +127,7 @@ public abstract class Nappula implements Liikkuva {
     }
 
     @Override
-    public boolean Liikkuu(Ruutu uusiRuutu) {
+    public boolean liikkuu(Ruutu uusiRuutu) {
         if (getShakkiRuudut().contains(uusiRuutu)) {
             setSijaintiRuutu(uusiRuutu);
             return true;

@@ -1,4 +1,3 @@
-
 package chesstrainer.peliosat;
 
 import chesstrainer.rakenteet.Nappula;
@@ -12,10 +11,11 @@ import chesstrainer.apuluokat.Vari;
 public class Lahetti extends Nappula {
 
     private Vari ruutuVari;
+
     public Lahetti(Vari vari) {
         super(vari);
     }
-    
+
     public Lahetti(Vari vari, Vari ruutuVari) {
         this(vari);
         this.ruutuVari = ruutuVari;
@@ -30,9 +30,9 @@ public class Lahetti extends Nappula {
         return Arvo.LAHETTI;
     }
 
-@Override
+    @Override
     public void asetaShakkiSuunnat() {
-        
+
         getShakkiSuunnat().add(Suunta.lounas);
         getShakkiSuunnat().add(Suunta.luode);
         getShakkiSuunnat().add(Suunta.kaakko);

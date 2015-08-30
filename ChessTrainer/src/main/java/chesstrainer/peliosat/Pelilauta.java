@@ -51,8 +51,8 @@ public class Pelilauta {
      *
      */
     public void tyhjennaLauta() {
-        TyhjennaRuudutShakeista();
-        TyhjennaRuudut();
+        tyhjennaRuudutShakeista();
+        tyhjennaRuudut();
         setNappulat(new ArrayList<Nappula>());
     }
 
@@ -118,13 +118,13 @@ public class Pelilauta {
      * shakeista ja asettaa nappuloiden vaikutusruudut uudelleen, koska nappulan
      * siirrolla voi olla vaikutusta toisten nappuloiden vaikutusruutuihin.
      */
-    public void TeeSiirronJalkeisetToimet() {
-        TyhjennaRuudutShakeista();
-        AsetaNappuloidenVaikutusRuudut();
-        TarkistaSuojaukset();
+    public void teeSiirronJalkeisetToimet() {
+        tyhjennaRuudutShakeista();
+        asetaNappuloidenVaikutusRuudut();
+        tarkistaSuojaukset();
     }
 
-    private void TyhjennaRuudutShakeista() {
+    private void tyhjennaRuudutShakeista() {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -135,7 +135,7 @@ public class Pelilauta {
         }
     }
 
-    private void TyhjennaRuudut() {
+    private void tyhjennaRuudut() {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -145,7 +145,7 @@ public class Pelilauta {
         }
     }
 
-    private void AsetaNappuloidenVaikutusRuudut() {
+    private void asetaNappuloidenVaikutusRuudut() {
         for (Nappula nappula : getNappulat()) {
             nappula.asetaShakkiruudut();
             System.out.println(nappula.getArvo() + nappula.getVari().toString() + nappula.getShakkiRuudut());
@@ -154,7 +154,7 @@ public class Pelilauta {
 
     }
 
-    private void TarkistaSuojaukset() {
+    private void tarkistaSuojaukset() {
         for (Nappula nappula : getNappulat()) {
 
             if (nappula.getVari() == Vari.Musta || nappula.getSijaintiRuutu() == null) {

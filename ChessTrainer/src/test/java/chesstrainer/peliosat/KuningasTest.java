@@ -33,7 +33,7 @@ public class KuningasTest {
     public void OnkoKeskustaKunkunShakkiRuudutOikein() {
 
         kunkku.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.d, 4)));
-        lauta.TeeSiirronJalkeisetToimet();
+        lauta.teeSiirronJalkeisetToimet();
 
         Assert.assertTrue(kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.e, 5)))
                 && kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.c, 3)))
@@ -50,7 +50,7 @@ public class KuningasTest {
     public void OnkoKulmaKunkunShakkiRuudutOikein() {
 
         kunkku.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.h, 1)));
-        lauta.TeeSiirronJalkeisetToimet();
+        lauta.teeSiirronJalkeisetToimet();
 
         Assert.assertTrue(kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.h, 2)))
                 && kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.g, 2)))
@@ -62,7 +62,7 @@ public class KuningasTest {
     public void OnkoReunaKunkunShakkiRuudutOikein() {
 
         kunkku.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.h, 3)));
-        lauta.TeeSiirronJalkeisetToimet();
+        lauta.teeSiirronJalkeisetToimet();
 
         Assert.assertTrue(kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.h, 4)))
                 && kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.h, 2)))
@@ -76,7 +76,7 @@ public class KuningasTest {
     public void OnkoAlaReunaKunkunShakkiRuudutOikein() {
 
         kunkku.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.c, 1)));
-        lauta.TeeSiirronJalkeisetToimet();
+        lauta.teeSiirronJalkeisetToimet();
 
         Assert.assertTrue(kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.b, 1)))
                 && kunkku.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.d, 1)))

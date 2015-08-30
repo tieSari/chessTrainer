@@ -33,7 +33,7 @@ public class RatsuTest {
     public void OnkoReunaRatsunShakkiRuudutOikein() {
 
         ratsu.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.b, 8)));
-        lauta.TeeSiirronJalkeisetToimet();
+        lauta.teeSiirronJalkeisetToimet();
 
         Assert.assertTrue(ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.a, 6)))
                 && ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.c, 6)))
@@ -45,7 +45,7 @@ public class RatsuTest {
     public void OnkoKeskustaRatsunShakkiRuudutOikein() {
 
         ratsu.setSijaintiRuutu(lauta.getRuutu(new Sijainti(Kirjain.d, 4)));
-        lauta.TeeSiirronJalkeisetToimet();
+        lauta.teeSiirronJalkeisetToimet();
 
         Assert.assertTrue(ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.e, 6)))
                 && ratsu.getShakkiRuudut().contains(lauta.getRuutu(new Sijainti(Kirjain.e, 2)))

@@ -10,23 +10,23 @@ import java.util.ArrayList;
  */
 public class NappulaTehdas {
 
-    public static Nappula LuoKuningas(Vari vari) {
+    public static Nappula luoKuningas(Vari vari) {
         return new Kuningas(vari);
     }
 
-    public static Nappula LuoKuningatar(Vari vari) {
+    public static Nappula luoKuningatar(Vari vari) {
         return new Kuningatar(vari);
     }
 
-    public static Nappula LuoTorni(Vari vari) {
+    public static Nappula luoTorni(Vari vari) {
         return new Torni(vari);
     }
 
-    public static Nappula LuoRatsu(Vari vari) {
+    public static Nappula luoRatsu(Vari vari) {
         return new Ratsu(vari);
     }
 
-    public static Nappula LuoLahetti(Vari vari, Vari ruutuVari) {
+    public static Nappula luoLahetti(Vari vari, Vari ruutuVari) {
         return new Lahetti(vari, ruutuVari);
 
     }
@@ -34,36 +34,36 @@ public class NappulaTehdas {
     /**
      * Luo parametrina annetun loppupelityypin mukaiset valkeat nappulat.
      *
-     * @param loppupeli
+     * @param loppupeli loppupelityyppi
      * @return lista Nappula-olioita
      */
-    public static ArrayList<Nappula> LuoValkeat(Loppupeli loppupeli) {
+    public static ArrayList<Nappula> luoValkeat(Loppupeli loppupeli) {
 
         ArrayList<Nappula> nappulat = new ArrayList<>();
-        nappulat.add(LuoKuningas(Vari.Valkea));
+        nappulat.add(luoKuningas(Vari.Valkea));
 
         switch (loppupeli) {
             case DaamiJaKuningas: {
-                nappulat.add(LuoKuningatar(Vari.Valkea));
+                nappulat.add(luoKuningatar(Vari.Valkea));
                 break;
             }
             case TorniJaKuningas: {
-                nappulat.add(LuoTorni(Vari.Valkea));
+                nappulat.add(luoTorni(Vari.Valkea));
                 break;
             }
             case KaksiTorniaJaKuningas: {
-                nappulat.add(LuoTorni(Vari.Valkea));
-                nappulat.add(LuoTorni(Vari.Valkea));
+                nappulat.add(luoTorni(Vari.Valkea));
+                nappulat.add(luoTorni(Vari.Valkea));
                 break;
             }
             case RatsuJaLahettiJaKuningas: {
-                nappulat.add(LuoRatsu(Vari.Valkea));
-                nappulat.add(LuoLahetti(Vari.Valkea, Vari.Valkea));
+                nappulat.add(luoRatsu(Vari.Valkea));
+                nappulat.add(luoLahetti(Vari.Valkea, Vari.Valkea));
                 break;
             }
             case KaksiLahettiaJaKuningas: {
-                nappulat.add(LuoLahetti(Vari.Valkea,Vari.Valkea));
-                nappulat.add(LuoLahetti(Vari.Valkea, Vari.Musta));
+                nappulat.add(luoLahetti(Vari.Valkea, Vari.Valkea));
+                nappulat.add(luoLahetti(Vari.Valkea, Vari.Musta));
                 break;
             }
         }

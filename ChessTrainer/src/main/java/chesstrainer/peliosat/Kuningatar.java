@@ -1,4 +1,3 @@
-
 package chesstrainer.peliosat;
 
 import chesstrainer.rakenteet.Nappula;
@@ -10,7 +9,7 @@ import chesstrainer.apuluokat.Vari;
 /**
  * Nappula-luokasta periytetty Kuningatar-nappula
  */
-public class Kuningatar extends Nappula implements Liikkuva{
+public class Kuningatar extends Nappula implements Liikkuva {
 
     public Kuningatar(Vari vari) {
         super(vari);
@@ -18,13 +17,12 @@ public class Kuningatar extends Nappula implements Liikkuva{
 
     @Override
     public Arvo getArvo() {
-        return Arvo.DAAMI; 
+        return Arvo.DAAMI;
     }
-    
-      
+
     @Override
     public void asetaShakkiSuunnat() {
-        
+
         getShakkiSuunnat().add(Suunta.ita);
         getShakkiSuunnat().add(Suunta.lansi);
         getShakkiSuunnat().add(Suunta.etela);
@@ -34,5 +32,5 @@ public class Kuningatar extends Nappula implements Liikkuva{
         getShakkiSuunnat().add(Suunta.kaakko);
         getShakkiSuunnat().add(Suunta.koillinen);
     }
-    
+
 }

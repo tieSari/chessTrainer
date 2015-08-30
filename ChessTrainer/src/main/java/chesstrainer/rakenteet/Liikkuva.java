@@ -4,7 +4,7 @@ package chesstrainer.rakenteet;
 import chesstrainer.peliosat.Ruutu;
 
 /**
- * Rajapintaluokka, jonka Liikkuu-metodin nappulat toteuttavat.
+ * Rajapintaluokka, jonka liikkuu-metodin nappulat toteuttavat.
  */
 public interface Liikkuva {
    
@@ -13,6 +13,6 @@ public interface Liikkuva {
      * @param uusiRuutu
      * @return onkoLiikkuminenOk
      */
-    public boolean Liikkuu(Ruutu uusiRuutu);
+    public boolean liikkuu(Ruutu uusiRuutu);
     
 }

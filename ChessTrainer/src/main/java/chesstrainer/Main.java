@@ -1,6 +1,6 @@
 package chesstrainer;
 
-import chesstrainer.UI.GraafinenKayttis;
+import chesstrainer.ui.GraafinenKayttis;
 //import chesstrainer.UI.TekstiKayttis;
 import chesstrainer.logiikka.Logiikka;
 import chesstrainer.peliosat.Pelilauta;
@@ -14,18 +14,17 @@ import javax.swing.SwingUtilities;
  */
 public class Main {
 
- /**
- *
- * Luodaan sovelluksen logiikka ja pelilauta sekä käyttöliittymä.
- */
+    /**
+     *
+     * Luodaan sovelluksen logiikka ja pelilauta sekä käyttöliittymä.
+     */
     public static void main(String args[]) throws IOException {
 
         final Logiikka logiikka = new Logiikka();
-       final Pelilauta pelilauta = new Pelilauta();
+        final Pelilauta pelilauta = new Pelilauta();
 
 //        TekstiKayttis testiUI = new TekstiKayttis(pelilauta, logiikka);
 //        testiUI.Pelaa();
-
         Runnable r = new Runnable() {
 
             @Override
